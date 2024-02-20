@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Anta&display=swap');
+
+.container-modificar-productos{
+    position: absolute;
+    top: 7vh;
+    left: 268px;
+    padding: 15px;
+}
+
+.container-modificar-productos .general {
+    margin-top: 70px;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    background-size: cover;
+}
+.container-modificar-productos header{
+    margin-left: 20px;
+}
+
+.container-modificar-productos header .h1 {
+    font-family: "Anta", sans-serif;
+    font-size: 30px;
+    display: flex;
+    position: fixed;
+    color:rgb(248, 192, 89); 
+}
+
+
+.container-form {
+    display: flex;
+    border-radius: 20px;
+    box-shadow: 0 5px 7px rgba(0, 0, 0, 0.1);
+    height: 560px;
+    max-width: 900px;
+    transition: all 1s ease;
+    margin: 10px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+    background-color: #fffcbc;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.welcome {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: #c7eef3;
+    border-top-left-radius: 20px;
+}
+
+.hamburgesa {
+    width: 100%;
+    padding: 0 30px;
+}
+
+.hamburgesa h2 {
+    font-size: 2.5rem;
+    color: #333;
+}
+
+
+.formulario {
+    padding: 0 30px;
+}
+
+.form {
+    margin: 30px 0 0 0;
+}
+
+.form label {
+    display: flex;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    align-items: center;
+    margin-bottom: 1px;
+    border-radius: 20px;
+    padding: 5px 10px;
+    border: solid thin orange;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form input,
+.form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    background-color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+}
+
+.form textarea {
+    resize: none;
+    height: 200px;
+    overflow-y: auto;
+}
+
+.estad {
+    width: 100%;
+    padding: 10px;
+    background-color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.b1,
+.b2 {
+    background-color: #364552;
+    color: #fff;
+    border-radius: 20px;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    margin-top: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.archivo {
+    border: 0;
+    font-family: cursive;
+    color: blueviolet;
+    cursor: pointer;
+}
+
+.archivo:focus {
+    color: #364552;
+}
+
+.archivo:hover {
+    color: lawngreen;
+}
+
+.vista-previa {
+    width: 100%;
+    height: 75px;
+    overflow-y: auto;
+}
+
+.vista-previa-imagen {
+    max-width: 100%;
+    max-height: 100%;
+}
+

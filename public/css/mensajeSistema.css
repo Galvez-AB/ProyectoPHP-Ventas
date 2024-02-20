@@ -1,0 +1,44 @@
+.container-mensaje-sistema{
+    position: absolute;
+    top: 7vh;
+    left: 268px;
+    padding: 15px;
+    z-index: 200; /* Añade esta línea */
+
+}
+
+.container-mensaje-sistema #aceptar{
+    background-color: #47a386;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(51, 26, 26, 0.2);/*sombra*/
+    color:#fff;
+    font-size: 14px;
+    padding: 10px 25px;
+    cursor: pointer;
+}
+
+
+.container-mensaje-sistema .modal{
+    background-color: #fff;
+    width: 600px;
+    max-width: 100%;
+    padding: 30px 50px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.container-mensaje-sistema .modal .texto{
+    color: red;
+    font-style: bold;
+}
+
+.container-mensaje-sistema .modal h1{
+    margin: 0;
+}
+.container-mensaje-sistema .modal p{
+    opacity: 0.7;
+}
+.container-mensaje-sistema .texto{
+    font-size: 20px;
+}

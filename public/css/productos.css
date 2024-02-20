@@ -1,0 +1,118 @@
+.contenedor {
+    position: absolute;
+    top: 7vh;
+    left: 268px;
+    padding: 15px;
+}
+
+.header {
+    display: flex;
+    align-items: center
+}
+
+.contenedor img {
+    width: 80px;
+    height: 80px;
+}
+
+.contenedor h1 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    padding: 15px;
+    color: orange;
+    font-family: "Copperplate", "Copperplate Gothic Light";
+    font-weight: bold;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.table-container {
+    position: relative;
+    width: 70vw;
+}
+
+.table {
+    background-color: #fffcbc;
+    width: 100%;
+    border-collapse: collapse;
+    overflow-y: auto;
+    max-height: 400px;
+    border-radius: 6px;
+}
+
+.table th,
+.table td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-family: Georgia, Times, 'Times New Roman', serif;
+}
+
+.table th {
+    background-color: #364552;
+    color: white;
+    
+}
+
+.table td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+}
+
+
+
+.button-agregar {
+    position: absolute;
+    top: -55px;
+    right: 0;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    border-radius: 4px; 
+    
+}
+
+
+.button-agregar button {
+    display: flex;
+    align-items: center;
+    cursor: pointer;  
+    border: none; 
+    background-color:rgb(150, 241, 211); 
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.button-agregar img {
+    top: 4px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    margin-right: 4px;
+}
+
+.button-agregar button span {
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+}
+
+.button-modificar,
+.button-eliminar {
+    border: none;
+    background: none;
+    padding: 0;
+}
+
+.button-modificar img,
+.button-eliminar img {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+}
+
+.button-modificar {
+    margin-right: 10px;
+}

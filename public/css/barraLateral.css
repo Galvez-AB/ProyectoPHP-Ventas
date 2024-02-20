@@ -1,0 +1,82 @@
+.barra-lateral {
+    position:absolute;
+    background-color: #364552;
+    color: white;
+    width: 250px;
+    height: 98.3vh;
+    overflow: auto;
+    top: 8px;
+    left: 8px;
+    border-radius: 8px;
+    z-index: 100; /* modo de prueba */
+  }
+
+  .titulo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    height: 33px;
+    font-size: 10px;
+    color:#fffcbc;
+    font-family:'Lucida Sans';
+
+  }
+  .barra-lateral .logo { /*se agrego tdo el code por error n msj system*/
+    width: 250px ;
+    height: 250px ;
+  }
+
+  .barra-lateral .logo img{
+    width: 250px !important;
+    height: 250px !important; /*se agrego important por error n msj system*/
+  }   
+
+  .barra-lateral ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+  }
+
+.barra-lateral ul li {
+    padding: 15px 20px;
+    border-bottom: 1px solid #5a5a5a;
+    transition: all 0.2s ease-in-out;
+  }
+
+.barra-lateral ul li form {
+  margin-bottom: 0; /*se agrego por error al moento de cargar msj system*/
+
+  }
+
+  .barra-lateral ul li a{
+    color: black;
+    font-size: 12px;
+    font-weight: bold;
+    margin: 4px;
+    margin-bottom: auto;
+    align-items: center;
+    padding: 5px;
+  }
+
+  .barra-lateral ul li :hover {
+    background-color: #fffcbc;
+    border-radius: 5px;
+  }
+
+  .barra-lateral ul li button {
+    background-color: rgb(226, 177, 85); 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    text-align: left; 
+    width: 100%; 
+    box-sizing: border-box; 
+    outline: none; 
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    
+  }
