@@ -1,7 +1,8 @@
 <?php
-    if (session_status() === PHP_SESSION_NONE)
+    /*if (session_status() === PHP_SESSION_NONE)
         session_start();
-
+        <?= $_SESSION['correo'];?>
+        */
         
     class formMenuAdmin{
         public function mostrarCabecera(){
@@ -19,7 +20,7 @@
                     </div>
                     <div class="encabezado-derecha">
                         <div class="informacion">
-                        <p>Grupo 05 - <?= $_SESSION['correo'];?></p>
+                        <p>Grupo 05 -</p> 
                         </div>
                         <div class="icons">
                             <img src="/ProyectoDSW/public/icons/mail.svg">

@@ -23,8 +23,8 @@ class ControlAutenticarUsuario {
                 if($this->eUsuario->validarUsuario($txtUser)){
                     if($this->eUsuario->validarContrasenia($txtUser, $txtPassword)){
                         $rol=$this->eUsuario->obtenerRol($txtUser);
-                        session_start();
-                        $_SESSION['correo']=$txtUser;
+                        /*session_start();
+                        $_SESSION['correo']=$txtUser;*/
                         if($rol=='admin'){
                             include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/views/admin/formInicioAdmin.php');
                             $this->formInicio=new formInicioAdmin();
