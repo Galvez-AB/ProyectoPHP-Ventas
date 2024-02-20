@@ -1,9 +1,12 @@
 <?php  
     class ControlProductos {
         private $mensaje;
+        private $ePlatos;
         public function __construct() {
-            include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/views/formMensajeSistema.php');  
+            include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/views/formMensajeSistema.php'); 
+            include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/models/Eplatos.php'); 
             $this->mensaje = new formMensajeSistema();
+            $this->ePlatos = new Eplatos();
         }
 
         public function ejecutarPost() {
@@ -16,20 +19,16 @@
                 $objFormAgregarProd = new formAgregarProd();
                 $objFormAgregarProd->formAgregarProductosShow();
             } else if($this->validarBoton($btnModificar)){
-                include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/models/Eplatos.php');
                 include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/views/admin/formModificarProducto.php');
                 $idPlato = $_POST['id'];
-                $objEPlatos = new Eplatos();
-                $plato= $objEPlatos->obtenerPlato($idPlato);
+                $plato= $this->ePlatos->obtenerPlato($idPlato);
                 $objFormModProd = new formModificarProd();
                 $objFormModProd->formModificarProductosShow($plato);
             } else if($this->validarBoton($btnEliminar)){
-                include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/models/Eplatos.php');
                 $idPlato = $_POST['id'];
-                $objEPlatos = new Eplatos();
-                $plato=$objEPlatos->obtenerPlato($idPlato);          
+                $plato=$this->ePlatos->obtenerPlato($idPlato);          
                 if ($plato) {
-                    $objEPlatos->eliminarPLatos($idPlato);
+                    $this->ePlatos->eliminarPLatos($idPlato);
                     $ruta = $plato['imagen'];
                     $rutaAbs = $_SERVER['DOCUMENT_ROOT'] . $ruta;
                     try {
@@ -53,9 +52,7 @@
 
         public function menuProductoShow() {
             include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/views/admin/formProductos.php');
-            include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/models/Eplatos.php');
-            $objEPlatos = new Eplatos();
-            $platos = $objEPlatos->obtenerPlatos();
+            $platos = $this->ePlatos->obtenerPlatos();
             $objFormProd = new formProductos();
             $objFormProd->formProductosShow($platos);
         }

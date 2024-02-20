@@ -19,7 +19,7 @@
                     </div>
                     <div class="encabezado-derecha">
                         <div class="informacion">
-                        <p>Grupo 05 - <?= $_SESSION['txtUser'];?></p>
+                        <p>Grupo 05 - <?= $_SESSION['correo'];?></p>
                         </div>
                         <div class="icons">
                             <img src="/ProyectoDSW/public/icons/mail.svg">

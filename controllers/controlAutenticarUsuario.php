@@ -24,7 +24,7 @@ class ControlAutenticarUsuario {
                     if($this->eUsuario->validarContrasenia($txtUser, $txtPassword)){
                         $rol=$this->eUsuario->obtenerRol($txtUser);
                         session_start();
-                        $_SESSION['txtUser']=$txtUser;
+                        $_SESSION['correo']=$txtUser;
                         if($rol=='admin'){
                             include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/views/admin/formInicioAdmin.php');
                             $this->formInicio=new formInicioAdmin();
@@ -40,9 +40,7 @@ class ControlAutenticarUsuario {
                 else
                     $this->mensaje->formMensajeLoginError('DATOS NO VÁLIDOS','El usuario ingresado no existe');
             } else
-                $this->mensaje->formMensajeLoginError('DATOS NO VÁLIDOS','El usuario debe tener 
-                                                    como mínimo 4 caracteres y la contraseña 
-                                                    debe tener como mínimo 8');
+                $this->mensaje->formMensajeLoginError('DATOS NO VÁLIDOS','Los datos ingresados no cumplen con las normas requeridas');
         } else {
             header("Location: http://localhost/ProyectoDSW/views/formHackeo.html");
             exit;

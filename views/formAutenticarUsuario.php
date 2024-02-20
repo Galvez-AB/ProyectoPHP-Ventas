@@ -11,7 +11,7 @@
                     <form method="post" action="/ProyectoDSW/controllers/controlAutenticarUsuario.php">
                         <div class="username">
                             <input type="text" name="txtUser" required >
-                            <label>Usuario</label>
+                            <label>Correo electrónico</label>
                         </div>
                         <div class="username">
                             <input type="password" name="txtPassword" required>
