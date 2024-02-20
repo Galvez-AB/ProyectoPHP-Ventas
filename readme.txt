@@ -1,2 +1,2 @@
---------------------
-.gitignore -> si desean ingorar algun archivo para que no se suba
+---------------------------------------------------------------------------
+creen un .gitignore -> si desean ignorar algun archivo para que no se suba
