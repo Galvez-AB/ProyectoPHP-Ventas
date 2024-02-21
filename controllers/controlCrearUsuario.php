@@ -17,9 +17,9 @@ class ControlCrearUsuario{
             $txtPassword=$_POST['txtPassword'];
             $txtPasswordC=$_POST['txtPasswordC'];
 
-            if(validarCorreo($txtCorreo)){
-                if(validarPassword($txtPassword)){
-                    if(compararPasswords($txtPassword,$txtPasswordC)){
+            if($this->validarCorreo($txtCorreo)){
+                if($this->validarPassword($txtPassword)){
+                    if($this->compararPasswords($txtPassword,$txtPasswordC)){
                         //todos los datos son validos
                     } else{
                         $this->mensaje->formMensajeLoginError();
