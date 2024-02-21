@@ -1,0 +1,166 @@
+body{
+    background-color: beige;
+}
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch+Pop&family=Tilt+Prism&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Rubik+Glitch+Pop&family=Tilt+Prism&display=swap');
+
+.baner {
+    margin-top: 0;
+    position: relative;
+    height: 80vh; 
+    overflow: hidden; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.baner video {
+    position: absolute;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    /* Centrar el video */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.baner h1 {
+    position: relative;
+    z-index: 1;
+    padding: 10px 20px;
+    color: rgb(255, 51, 51); 
+    font-family: "Rubik Glitch Pop", system-ui;
+    font-size: 15px;
+}
+.baner h2 {
+    position: relative;
+    z-index: 1;
+    padding: 10px 20px;
+    color: white; 
+    font-family: "Abril Fatface", serif;
+    font-size: 60px;
+}
+.baner h3 {
+    position: relative;
+    z-index: 1;
+    color: white; 
+    padding: 10px 20px;
+    background-color: rgba(255, 0, 0, 0.7);
+    border-radius: 10px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 13px;
+}
+/*--------------------EXTRA---------------------------*/
+.informacionExtra {
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px; 
+}
+
+.info1, .info2 {
+    border: 1px solid white; 
+    padding: 20px; 
+    text-align: center; 
+    width: 400px; 
+    height: 300px; 
+    color: #fff;
+    border-radius: 20px;
+}
+.info1 {
+    background-color: purple;
+}
+.info2 {
+    background-color: rgb(0, 0, 173);
+}
+
+.info1 h1, .info2 h1 {
+    font-weight: bold; 
+}
+
+.info1 p, .info2 p {
+    font-weight: normal; 
+    font-size: 20px;
+    line-height: 1.8; 
+}
+
+
+.tituloVentas{
+    background-color: rgba(230, 149, 0, 0.767);
+    color: white;
+    font-family: 'Arial', sans-serif;
+    text-align: center;
+    margin-top: 40px;
+    margin-left: 130px;
+    margin-right: 120px;
+    padding: 20px;
+}
+
+
+.VentaProductos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+    margin-left: 58px;
+    max-width: 90%;
+    margin-top: 50px;
+  }
+  
+  .product-card {
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: calc(100% / 4 - 40px); 
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+  }
+  
+  .product-card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+  
+  .product-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .product-name {
+    font-size: 18px;
+    color: #333;
+    margin: 10px 0;
+  }
+  
+  .product-price {
+    font-size: 16px;
+    color: #666;
+    margin: 10px 0;
+  }
+  
+  .product-description {
+    font-size: 14px;
+    color: #999;
+    margin: 10px 0;
+  }
+
+  .product-card button {
+    background-color: orange; 
+    color: white; 
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    padding: 8px 20px;
+    border-radius: 3px;
+    position: relative; 
+    bottom: 2px;
+    left: 25%;
+    margin-top: 15px;
+}

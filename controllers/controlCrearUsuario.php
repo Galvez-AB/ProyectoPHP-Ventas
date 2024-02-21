@@ -22,7 +22,7 @@ class ControlCrearUsuario{
                     if($this->compararPasswords($txtPassword,$txtPasswordC)){
                         //todos los datos son validos
                     } else{
-                        $this->mensaje->formMensajeLoginError();
+                        //$this->mensaje->formMensajeLoginError();
                         //passwords no son iguales
                     }
                 } else{

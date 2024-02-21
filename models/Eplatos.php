@@ -18,6 +18,19 @@
             return $platos;
         }
 
+        public function obtenerPlatosActivos(){
+            $conexion = new ConnectionBD();
+            $con = $conexion->connect();
+            $query = "SELECT * FROM plato WHERE estado = 1";
+            $result = mysqli_query($con, $query);
+            $platos = array();
+            while ($row = mysqli_fetch_assoc($result)) {
+                $platos[] = $row;
+            }
+            $conexion->disconnect();
+            return $platos;
+        }
+
 
         public function agregarPlatos($nombre,$precio,$desc,$estado){
             $conexion = new ConnectionBD();
