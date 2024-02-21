@@ -2,7 +2,6 @@
 class ControlAutenticarUsuario {
     private $mensaje;
     private $eUsuario;
-    private $formInicio;
 
     public function __construct() {
         include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/views/formMensajeSistema.php');
@@ -14,6 +13,7 @@ class ControlAutenticarUsuario {
     public function ejecutarPost() {
         
         $btnIniciar = isset($_POST['btnIniciar']) ? $_POST['btnIniciar'] : null;
+        $btnRegistrar = isset($_POST['btnRegistrar']) ? $_POST['btnRegistrar'] : null;
 
         if ($this->validarBoton($btnIniciar)) {
             $txtUser = $_POST['txtUser'];
@@ -27,8 +27,8 @@ class ControlAutenticarUsuario {
                         $_SESSION['correo']=$txtUser;*/
                         if($rol=='admin'){
                             include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/views/admin/formInicioAdmin.php');
-                            $this->formInicio=new formInicioAdmin();
-                            $this->formInicio->formInicioAdminShow();
+                            $formInicioAdmin=new formInicioAdmin();
+                            $formInicioAdmin->formInicioAdminShow();
                         }
                         else{
                             
@@ -41,6 +41,10 @@ class ControlAutenticarUsuario {
                     $this->mensaje->formMensajeLoginError('DATOS NO VÁLIDOS','El usuario ingresado no existe');
             } else
                 $this->mensaje->formMensajeLoginError('DATOS NO VÁLIDOS','Los datos ingresados no cumplen con las normas requeridas');
+        } elseif($this->validarBoton($btnRegistrar)){
+            include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/views/formCrearUsuario.php');
+            $formCrearUsuario=new formCrearUsuario();
+            $formCrearUsuario->formCrearUsuarioShow();
         } else {
             header("Location: http://localhost/ProyectoDSW/views/formHackeo.html");
             exit;
