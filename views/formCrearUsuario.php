@@ -8,7 +8,7 @@
             <body>
                 <div class="formulario">
                     <h1>Registrate</h1>
-                    <form method="post" action="/ProyectoDSW/controllers/controlCrearUsuario.php">
+                    <form method="post" action="/Prueba/controlCrearUsuario.php">
                         <div class="username">
                             <input type="text" name="txtNombre" required >
                             <label>Nombres</label>

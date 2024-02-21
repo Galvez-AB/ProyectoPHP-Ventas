@@ -20,7 +20,9 @@ class ControlCrearUsuario{
             if($this->validarCorreo($txtCorreo)){
                 if($this->validarPassword($txtPassword)){
                     if($this->compararPasswords($txtPassword,$txtPasswordC)){
-                        //todos los datos son validos
+                        include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/models/correo.php');
+                        $correoVerificacion=new Correo();
+                        $correoVerificacion->enviarCorreoVerificacion('Hamburguesita','burgerfisi@gmail.com','123456');
                     } else{
                         //$this->mensaje->formMensajeLoginError();
                         //passwords no son iguales
