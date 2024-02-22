@@ -76,7 +76,7 @@
                     <div>
                         <?php echo $texto; ?>
                     </div>
-                    <button id="aceptar" type="button" onclick="regresar()" >Inicio</button>
+                    <button id="aceptar" type="button" onclick="regresar()" >Regresar</button>
                 </div>
             </body>
             <?php

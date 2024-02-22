@@ -58,8 +58,8 @@ class ControlAutenticarUsuario {
             $formCrearUsuario=new formCrearUsuario();
             $formCrearUsuario->formCrearUsuarioShow();
         } else {
-            header("Location: http://localhost/ProyectoDSW/views/formHackeo.html");
-            exit;
+            header("Location: http://localhost/ProyectoDSW/index.php");
+            exit();
         }
     }
 

@@ -21,8 +21,9 @@ class ControlPanel {
     }
 
 }
-$controlador = new ControlPanel();
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $controlador = new ControlPanel();
     $controlador->ejecutarAccion();
 } 
 ?>

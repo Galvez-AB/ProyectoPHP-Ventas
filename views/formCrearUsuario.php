@@ -4,6 +4,9 @@
             ?>
             <head>
                 <link rel="stylesheet" href="http://localhost/ProyectoDSW/public/css/autenticarUsuario.css">
+                <script>
+                    function regresar() {window.history.back();}
+                </script>
             </head>
             <body>
                 <div class="formulario">
@@ -30,6 +33,7 @@
                             <label>Repetir contraseña</label>
                         </div>
                         <button type="submit" name="btnContinuar">Continuar</button>
+                        <button type="button" name="btnRegresar"  onclick="regresar()" >Regresar</button>
                     </form>
                 </div>
 
