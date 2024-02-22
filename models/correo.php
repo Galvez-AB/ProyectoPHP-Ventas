@@ -48,14 +48,13 @@ use PHPMailer\PHPMailer\Exception;
                                 <p>Este es tu código de verificación:</p>
                                 <p style="font-size: 20px;"><strong>'.$codigo.'</strong></p>
                                 <p>Por favor, introduce este código en la página para completar el proceso de verificación.</p>
-                                <p>Este código es válido por [número de minutos] minutos.</p>
                                 <p>¡Gracias por utilizar Burgerfisi!</p>';
                 
                 
                 $this->mail->send();
-                echo 'Message has been sent';
+                return true;
             }   catch (Exception $e) {
-                echo "Message could not be sent. Mailer Error: {$this->mail->ErrorInfo}";
+                return false;
             }
         }
     }

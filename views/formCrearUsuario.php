@@ -4,11 +4,14 @@
             ?>
             <head>
                 <link rel="stylesheet" href="http://localhost/ProyectoDSW/public/css/autenticarUsuario.css">
+                <script>
+                    function regresar() {window.history.back();}
+                </script>
             </head>
             <body>
                 <div class="formulario">
                     <h1>Registrate</h1>
-                    <form method="post" action="/Prueba/controlCrearUsuario.php">
+                    <form method="post" action="/ProyectoDSW/controllers/controlCrearUsuario.php">
                         <div class="username">
                             <input type="text" name="txtNombre" required >
                             <label>Nombres</label>
@@ -30,6 +33,7 @@
                             <label>Repetir contraseña</label>
                         </div>
                         <button type="submit" name="btnContinuar">Continuar</button>
+                        <button type="button" name="btnRegresar"  onclick="regresar()" >Regresar</button>
                     </form>
                 </div>
 

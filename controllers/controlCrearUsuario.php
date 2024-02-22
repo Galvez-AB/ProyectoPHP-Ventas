@@ -1,9 +1,12 @@
 <?php
 class ControlCrearUsuario{
     private $mensaje;
+    private $eUsuario;
     public function __construct() {
         include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/views/formMensajeSistema.php');
+        include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/models/Eusuario.php');
         $this->mensaje = new formMensajeSistema();
+        $this->eUsuario = new Eusuario();
     }
 
     
@@ -20,19 +23,19 @@ class ControlCrearUsuario{
             if($this->validarCorreo($txtCorreo)){
                 if($this->validarPassword($txtPassword)){
                     if($this->compararPasswords($txtPassword,$txtPasswordC)){
+                        $codigoVerificacion = rand(10000, 99999);
                         include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/models/correo.php');
                         $correoVerificacion=new Correo();
-                        $correoVerificacion->enviarCorreoVerificacion('Hamburguesita','burgerfisi@gmail.com','123456');
+                        $correoVerificacion->enviarCorreoVerificacion($txtNombre,'burgerfisi@gmail.com',$codigoVerificacion);
+                        
                     } else{
-                        //$this->mensaje->formMensajeLoginError();
-                        //passwords no son iguales
+                        $this->mensaje->formMensajeLoginError('DATOS NO VÁLIDOS','Las contraseñas digitadas no coinciden');
                     }
                 } else{
-                    //contraseña con cumple con los parametros
+                    $this->mensaje->formMensajeLoginError('DATOS NO VÁLIDOS','La contraseña ingresada debe tener al menos 8 caracteres');
                 }
             } else{
                 $this->mensaje->formMensajeLoginError('DATOS NO VÁLIDOS','El correo ingresado ya esta en uso');
-                //correo no cumple con las normas
             }
         } else{
             header("Location: http://localhost/ProyectoDSW/views/formHackeo.html");
@@ -44,8 +47,7 @@ class ControlCrearUsuario{
         return isset($boton);
     }
     public function validarCorreo($correo) {
-
-        return (strlen($correo)>10 && strlen($correo)<50);
+        return !$this->eUsuario->validarUsuario($correo);
     }
     public function validarPassword($password) {
         return (strlen($password)>7 && strlen($password)<50);
