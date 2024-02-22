@@ -27,7 +27,9 @@ class ControlCrearUsuario{
                         include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/models/correo.php');
                         $correoVerificacion=new Correo();
                         $correoVerificacion->enviarCorreoVerificacion($txtNombre,'burgerfisi@gmail.com',$codigoVerificacion);
-                        
+                        include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/views/formVerificacion.php');
+                        $formVerificacion=new formVerificacion();
+                        $formVerificacion->formVerificacionShow($codigoVerificacion);
                     } else{
                         $this->mensaje->formMensajeLoginError('DATOS NO VÁLIDOS','Las contraseñas digitadas no coinciden');
                     }
@@ -38,8 +40,8 @@ class ControlCrearUsuario{
                 $this->mensaje->formMensajeLoginError('DATOS NO VÁLIDOS','El correo ingresado ya esta en uso');
             }
         } else{
-            header("Location: http://localhost/ProyectoDSW/views/formHackeo.html");
-            exit;
+            header("Location: http://localhost/ProyectoDSW/index.php");
+            exit();
         }
     }
 
