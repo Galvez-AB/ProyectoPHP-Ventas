@@ -1,0 +1,63 @@
+.PanelPedido {
+    max-width: 800px; 
+    margin: 0 auto; 
+    padding: 20px;
+    background-color: #ffdfdf; 
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1); 
+    border-radius: 8px; 
+    margin-top: 30px; 
+}
+
+table {
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-top: 20px; 
+}
+
+th, td {
+    text-align: left; 
+    padding: 8px; 
+    border-bottom: 1px solid #ddd; 
+}
+
+th {
+    background-color: #f44336;
+    color: white; 
+}
+
+tr:hover {
+    background-color: #fdd835; 
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; 
+}
+
+td {
+    color: #333; 
+}
+
+strong {
+    color: #f44336; 
+}
+
+
+.panelPedidosBoton {
+    text-align: center; 
+    margin-top: 50px; 
+}
+
+.panelPedidosBoton button {
+    background-color: #f44336; 
+    color: white; 
+    border: none; 
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px; 
+    transition: background-color 0.3s ease; 
+}
+
+.panelPedidosBoton button:hover {
+    background-color: #ff831e; 
+}

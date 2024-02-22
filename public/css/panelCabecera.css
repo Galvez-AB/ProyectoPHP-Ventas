@@ -27,12 +27,6 @@ body{
     padding-left: 20px;
 }
 
-.encabezado-derecha {
-    display: flex;
-    align-items: center;
-    padding-right: 20px;
-    
-}
 .encabezado-izquierda h1 {
     margin: 0 10px;
     font-size: 18px;
@@ -44,22 +38,35 @@ body{
     width: 30px;
     margin-right: 10px;
 }
-
+.encabezado-derecha {
+    display: flex;
+    align-items: center;
+    padding-right: 20px;
+    
+}
 .encabezado-derecha img {
     height: 37px;
     margin-right: 10px;
 }
 
 .encabezado-izquierda  button {
-    padding: 22px 20px;
+    padding: 22px 22px;
     background-color: #ff574b;
     color: white;
     border: none;
     cursor: pointer;
-    margin-left: 80px;
     margin-top: 0;
     font-weight: bold; 
 }
+
+.encabezado-izquierda  .botonInicio {
+    margin-left: 80px;
+}
+
+.encabezado-izquierda  .botonPedidos {
+    margin-left: 5px;
+}
+
 
 .encabezado-izquierda button:hover {
     background-color: #ff1100;
@@ -83,4 +90,29 @@ body{
 .informacion p {
     margin: 0;
     padding-right: 20px;
+}
+
+/*-----------------carrito uwu-----------------------------*/
+.carrito {
+    display: flex;
+    align-items: center;
+    position: relative; 
+    margin-right: 20px; 
+}
+
+.carrito i.fa-cart-shopping {
+    font-size: 25px; 
+    color: white;
+}
+
+.contador-carrito {
+    position: absolute;
+    top: -10px; 
+    right: -10px; 
+    background-color: rgb(255, 210, 60); 
+    color: #333; 
+    font-size: 12px; 
+    padding: 2px 6px; 
+    border-radius: 50%; 
+    font-weight: bold; 
 }

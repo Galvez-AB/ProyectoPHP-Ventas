@@ -39,5 +39,18 @@ class Eusuario extends ConnectionBD {
             return null;
         }
     }
+    public function obtenerUsuario($txtUser) {
+        $con = $this->connect(); 
+        $txtUser = mysqli_real_escape_string($con, $txtUser); 
+        $query = "SELECT * FROM Usuario WHERE correo = '$txtUser'";
+        $result = mysqli_query($con, $query); 
+    
+        if ($result && mysqli_num_rows($result) > 0) {
+            $usuario = mysqli_fetch_assoc($result); 
+            return $usuario; 
+        } else {
+            return null; 
+        }
+    }
 }
 ?>
