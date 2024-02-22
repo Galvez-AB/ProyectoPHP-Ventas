@@ -22,7 +22,7 @@ class formPanelUsuario{
                         <form action="http://localhost/ProyectoDSW/controllers/controlPanelUsuario.php" method="POST">
                             <button type="submit" name="accion" value="iniciarSesion">Iniciar Sesión</button>
                         </form>
-                   </div>
+                    </div>
             </div>
         </body>
         </html>

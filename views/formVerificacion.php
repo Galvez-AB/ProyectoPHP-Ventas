@@ -9,17 +9,21 @@
                 </script>
             </head>
             <body>
-                <input type="hidden" name="txtCodigo" value="<?php echo $codigo; ?>">
-                <input type="hidden" name="usuario" value="<?php echo $usuario; ?>">
                 <div class="formulario">
                     <h1>Código de verificación</h1>
                     <form method="post" action="/ProyectoDSW/controllers/controlVerificacion.php">
+                        <input type="hidden" name="txtCodigo" value="<?php echo $codigo; ?>">
+                        <input type="hidden" name="nombre" value="<?php echo $usuario['nombre']; ?>">
+                        <input type="hidden" name="apellido" value="<?php echo $usuario['apellido']; ?>">
+                        <input type="hidden" name="txtCorreo" value="<?php echo $usuario['correo']; ?>">
+                        <input type="hidden" name="txtPassword" value="<?php echo $usuario['password']; ?>">
                         <div>
-                            Se ha enviado un código de verificación a su correo:
+                            Se ha enviado un código de verificación al correo: <?php echo $usuario['correo']; ?>
                         </div>
                         <div>
-                            <input type="text" name="txtValidar" required>
                             <label>Correo electrónico</label>
+                            <input type="text" name="txtValidar" required>
+                            
                         </div>
                         
                         <button type="submit" name="btnVerificar">Verificar</button>

@@ -12,12 +12,16 @@ class ControlVerificacion{
         $btnVerificar = isset($_POST['btnVerificar']) ? $_POST['btnVerificar'] : null;
 
         if($this->validarBoton($btnVerificar)){
-            $usuario=$_POST['usuario'];
+            $nombre=$_POST['nombre'];
+            $apellido=$_POST['apellido'];
+            $txtCorreo=$_POST['txtCorreo'];
+            $txtPassword=$_POST['txtPassword'];
             $txtCodigo=$_POST['txtCodigo'];
             $txtValidar=$_POST['txtValidar'];
 
             if($this->validarCodigo($txtCodigo,$txtValidar)){
-                
+                echo $nombre.$apellido.$txtCorreo;
+                die();
                 //guardar info en la base de datos
                 //ingresar a la pagina
             } else{

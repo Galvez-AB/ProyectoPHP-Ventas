@@ -66,7 +66,7 @@ class Eusuario{
         $txtUser = mysqli_real_escape_string($con, $txtUser); 
         $query = "SELECT * FROM Usuario WHERE correo = '$txtUser'";
         $result = mysqli_query($con, $query); 
-    
+        $conexion->disconnect();
         if ($result && mysqli_num_rows($result) > 0) {
             $usuario = mysqli_fetch_assoc($result); 
             return $usuario; 
