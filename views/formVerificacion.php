@@ -1,6 +1,6 @@
 <?php
     class formVerificacion{
-        public function formVerificacionShow($codigo){
+        public function formVerificacionShow($usuario,$codigo){
             ?>
             <head>
                 <link rel="stylesheet" href="http://localhost/ProyectoDSW/public/css/autenticarUsuario.css">
@@ -10,6 +10,7 @@
             </head>
             <body>
                 <input type="hidden" name="txtCodigo" value="<?php echo $codigo; ?>">
+                <input type="hidden" name="usuario" value="<?php echo $usuario; ?>">
                 <div class="formulario">
                     <h1>Código de verificación</h1>
                     <form method="post" action="/ProyectoDSW/controllers/controlVerificacion.php">

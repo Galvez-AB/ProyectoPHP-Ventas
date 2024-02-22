@@ -19,6 +19,11 @@ class ControlCrearUsuario{
             $txtCorreo=$_POST['txtCorreo'];
             $txtPassword=$_POST['txtPassword'];
             $txtPasswordC=$_POST['txtPasswordC'];
+            $usuario = array(
+                'nombre' => $txtNombre,
+                'apellido' => $txtApellido,
+                'correo' => $txtCorreo,
+                'password' => $txtPassword);
 
             if($this->validarCorreo($txtCorreo)){
                 if($this->validarPassword($txtPassword)){
@@ -29,7 +34,7 @@ class ControlCrearUsuario{
                         $correoVerificacion->enviarCorreoVerificacion($txtNombre,'burgerfisi@gmail.com',$codigoVerificacion);
                         include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/views/formVerificacion.php');
                         $formVerificacion=new formVerificacion();
-                        $formVerificacion->formVerificacionShow($codigoVerificacion);
+                        $formVerificacion->formVerificacionShow($usuario,$codigoVerificacion);
                     } else{
                         $this->mensaje->formMensajeLoginError('DATOS NO VÁLIDOS','Las contraseñas digitadas no coinciden');
                     }
