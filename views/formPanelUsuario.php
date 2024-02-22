@@ -13,7 +13,7 @@ class formPanelUsuario{
                     <div class="encabezado-izquierda">
                         <img src="http://localhost/ProyectoDSW/public/img/system/iconoPW.png">
                         <h1>B U R G E R - F I S I </h1>
-                        <button>Inicio</button>
+                        <button class="botonInicio" >Inicio</button>
                     </div>
                     <div class="encabezado-derecha">
                         <div class="informacion">
@@ -35,6 +35,7 @@ class formPanelUsuario{
         <head>
             <meta charset="UTF-8">
             <link rel="stylesheet" href="http://localhost/ProyectoDSW/public/css/panelMenu.css">
+            <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         </head>
         <body>
             <div class="baner">
@@ -79,26 +80,27 @@ class formPanelUsuario{
                         <img src="/ProyectoDSW/public/icons/star.svg"width="15" height="15"></h2>
                         <p class="product-price">$.<?php echo $producto['precio']; ?></p>
                         <p class="product-description"><?php echo $producto['descripcion']; ?></p>
-                        <button>Agregar al Carrito</button>
+                        <button class="carritoNulo">Agregar al Carrito</button>
                     </div>
                 <?php } ?>
             </div>
 
         </body>
-        </html>
-        <?php
-    }
-    public function formPanelPedido(){
-        ?>
-        <!DOCTYPE html>
-        <html lang="es">
-        <head>
-            <meta charset="UTF-8">
-        </head>
-        <body>
-            <div class="PanelPedido">
-            </div>
-        </body>
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var botonesAgregar = document.querySelectorAll('.carritoNulo');
+                botonesAgregar.forEach(function(boton) {
+                    boton.addEventListener('click', function() {
+                        Swal.fire({
+                            title: "¡Iniciar Sesión!",
+                            text: "Debe iniciar sesión para comprar",
+                            icon: "warning",
+                            position: 'center'
+                        });
+                    });
+                });
+            });
+        </script>
         </html>
         <?php
     }
