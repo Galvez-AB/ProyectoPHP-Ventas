@@ -1,9 +1,4 @@
 <?php
-    /*if (session_status() === PHP_SESSION_NONE)
-        session_start();
-        <?= $_SESSION['correo'];?>
-        */
-        
     class formMenuAdmin{
         public function mostrarCabecera(){
             ?>
@@ -20,12 +15,16 @@
                     </div>
                     <div class="encabezado-derecha">
                         <div class="informacion">
-                        <p>Grupo 05 -</p> 
+                        <p>Grupo 05 -<?= $_SESSION['usuario']['correo']?></p> 
                         </div>
                         <div class="icons">
-                            <img src="/ProyectoDSW/public/icons/mail.svg">
-                            <img src="/ProyectoDSW/public/icons/user.svg">
-                            <img src="/ProyectoDSW/public/icons/exit.svg">
+                            <form method="post" action="/ProyectoDSW/controllers/admin/controlAdmin.php">
+                                <img src="/ProyectoDSW/public/icons/mail.svg">
+                                <img src="/ProyectoDSW/public/icons/user.svg">
+                                <button type="submit" name="btnSalir">
+                                    <img src="/ProyectoDSW/public/icons/exit.svg">
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>

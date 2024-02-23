@@ -1,18 +1,20 @@
 <?php
-class formInicioAdmin{
-    private $menuAdmin;
+if (session_status() == PHP_SESSION_NONE)
+    session_start();
 
-    public function __construct() {
-        include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/views/admin/formMenuAdmin.php');
-        $this->menuAdmin = new formMenuAdmin();
-    }
-    
-    public function formInicioAdminShow(){
-        $this->menuAdmin->mostrarCabecera();
-        $this->menuAdmin->mostrarBarraLateral();
-        
-    }
+if (!isset($_SESSION['usuario'])) {
+    session_destroy();
+    header("Location: /ProyectoDSW/views/formAutenticarUsuario.php");
+    exit();
 }
 
 
+include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/views/admin/formMenuAdmin.php');
+$menuAdmin=new formMenuAdmin();
+
+$menuAdmin->mostrarCabecera();
+$menuAdmin->mostrarBarraLateral();
 ?>
+<div>
+    ¡Bienvenido a nuestro sistema, <?= $_SESSION['usuario']['nombre'].' '.$_SESSION['usuario']['apellido']?>!
+</div>

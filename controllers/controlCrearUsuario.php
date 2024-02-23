@@ -2,6 +2,7 @@
 class ControlCrearUsuario{
     private $mensaje;
     private $eUsuario;
+
     public function __construct() {
         include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/views/formMensajeSistema.php');
         include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/models/Eusuario.php');
@@ -9,7 +10,6 @@ class ControlCrearUsuario{
         $this->eUsuario = new Eusuario();
     }
 
-    
     public function ejecutarPost(){
         $btnContinuar = isset($_POST['btnContinuar']) ? $_POST['btnContinuar'] : null;
 
@@ -19,22 +19,26 @@ class ControlCrearUsuario{
             $txtCorreo=$_POST['txtCorreo'];
             $txtPassword=$_POST['txtPassword'];
             $txtPasswordC=$_POST['txtPasswordC'];
-            $usuario = array(
-                'nombre' => $txtNombre,
-                'apellido' => $txtApellido,
-                'correo' => $txtCorreo,
-                'password' => $txtPassword);
 
             if($this->validarCorreo($txtCorreo)){
                 if($this->validarPassword($txtPassword)){
                     if($this->compararPasswords($txtPassword,$txtPasswordC)){
-                        $codigoVerificacion = rand(10000, 99999);
+                        session_start();
+                        $_SESSION['candidato']=array(
+                            'nombre' => $txtNombre,
+                            'apellido' => $txtApellido,
+                            'correo' => $txtCorreo,
+                            'password' => $txtPassword);
+                        $_SESSION['codVerificar']=rand(10000, 99999);
                         include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/models/correo.php');
                         $correoVerificacion=new Correo();
-                        $correoVerificacion->enviarCorreoVerificacion($txtNombre,'burgerfisi@gmail.com',$codigoVerificacion);
-                        include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/views/formVerificacion.php');
-                        $formVerificacion=new formVerificacion();
-                        $formVerificacion->formVerificacionShow($usuario,$codigoVerificacion);
+                        $enviado=$correoVerificacion->enviarCorreoVerificacion($txtNombre,$txtCorreo,$_SESSION['codVerificar']);
+                        if($enviado){
+                            header("Location: /ProyectoDSW/views/formVerificacion.php");
+                            exit();
+                        } else {
+                            $this->mensaje->formMensajeLoginError('DATOS NO VÁLIDOS','No se pudo enviar el codigo de verificación');
+                        }
                     } else{
                         $this->mensaje->formMensajeLoginError('DATOS NO VÁLIDOS','Las contraseñas digitadas no coinciden');
                     }
@@ -42,7 +46,7 @@ class ControlCrearUsuario{
                     $this->mensaje->formMensajeLoginError('DATOS NO VÁLIDOS','La contraseña ingresada debe tener al menos 8 caracteres');
                 }
             } else{
-                $this->mensaje->formMensajeLoginError('DATOS NO VÁLIDOS','El correo ingresado ya esta en uso');
+                $this->mensaje->formMensajeLoginError('DATOS NO VÁLIDOS','El correo ingresado no es valido o ya esta en uso');
             }
         } else{
             header("Location: http://localhost/ProyectoDSW/index.php");
@@ -53,12 +57,17 @@ class ControlCrearUsuario{
     public function validarBoton($boton) {
         return isset($boton);
     }
+
     public function validarCorreo($correo) {
-        return !$this->eUsuario->validarUsuario($correo);
+        if(filter_var($correo,FILTER_VALIDATE_EMAIL) && strlen($correo)<200)
+            return !$this->eUsuario->validarUsuario($correo);
+        return false;
     }
+
     public function validarPassword($password) {
         return (strlen($password)>7 && strlen($password)<50);
     }
+    
     public function compararPasswords($password,$passwordC) {
         return $password==$passwordC;
     }

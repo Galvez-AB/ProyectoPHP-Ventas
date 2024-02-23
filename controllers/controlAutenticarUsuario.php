@@ -11,7 +11,6 @@ class ControlAutenticarUsuario {
     }
 
     public function ejecutarPost() {
-        
         $btnIniciar = isset($_POST['btnIniciar']) ? $_POST['btnIniciar'] : null;
         $btnRegistrar = isset($_POST['btnRegistrar']) ? $_POST['btnRegistrar'] : null;
 
@@ -22,11 +21,12 @@ class ControlAutenticarUsuario {
             if ($this->validarDatos($txtUser, $txtPassword)) {
                 if($this->eUsuario->validarUsuario($txtUser)){
                     if($this->eUsuario->validarContrasenia($txtUser, $txtPassword)){
-                        $rol=$this->eUsuario->obtenerRol($txtUser);
-                        if($rol=='admin'){
-                            include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/views/admin/formInicioAdmin.php');
-                            $formInicioAdmin=new formInicioAdmin();
-                            $formInicioAdmin->formInicioAdminShow();
+                        $usuario=$this->eUsuario->obtenerUsuario($txtUser);
+                        if($usuario['rol']=='admin'){
+                            session_start();
+                            $_SESSION['usuario']=$usuario;
+                            header("Location: /ProyectoDSW/views/admin/formInicioAdmin.php");
+                            exit();
                         }
                         else{
                             session_start(); 
@@ -45,18 +45,17 @@ class ControlAutenticarUsuario {
                             //-------------------------------------------------
                             $formInicio->formPanelMenu($platos);
                             }
-                       }
+                        }
                     else
                         $this->mensaje->formMensajeLoginError('DATOS NO VÁLIDOS','La contraseña es incorrecta');
                 }
                 else
                     $this->mensaje->formMensajeLoginError('DATOS NO VÁLIDOS','El usuario ingresado no existe');
             } else
-                $this->mensaje->formMensajeLoginError('DATOS NO VÁLIDOS','Los datos ingresados no cumplen con las normas requeridas');
+                $this->mensaje->formMensajeLoginError('DATOS NO VÁLIDOS','El correo debe ser válido y la contraseña tiene que tener al menos 8 caracteres');
         } elseif($this->validarBoton($btnRegistrar)){
-            include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/views/formCrearUsuario.php');
-            $formCrearUsuario=new formCrearUsuario();
-            $formCrearUsuario->formCrearUsuarioShow();
+            header("Location: /ProyectoDSW/views/formCrearUsuario.php");
+            exit();
         } else {
             header("Location: http://localhost/ProyectoDSW/index.php");
             exit();
@@ -68,7 +67,8 @@ class ControlAutenticarUsuario {
     }
 
     public function validarDatos($txtUser, $txtPassword) {
-        return (strlen($txtUser) > 3 && strlen($txtPassword) > 7);
+        return filter_var($txtUser,FILTER_VALIDATE_EMAIL) && strlen($txtUser)<200 &&
+        strlen($txtPassword) <50 && strlen($txtPassword) > 7;
     }
 }
 
