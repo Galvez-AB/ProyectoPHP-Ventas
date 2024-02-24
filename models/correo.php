@@ -5,6 +5,7 @@ use PHPMailer\PHPMailer\Exception;
     class Correo{
         private $mail;
         public function __construct(){
+            include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/models/correoInfo.php');
             require $_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/vendor/PHPMailer/Exception.php';
             require $_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/vendor/PHPMailer/PHPMailer.php';
             require $_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/vendor/PHPMailer/SMTP.php';
@@ -17,14 +18,14 @@ use PHPMailer\PHPMailer\Exception;
                 $this->mail->isSMTP(); 
                 $this->mail->Host='smtp.gmail.com';
                 $this->mail->SMTPAuth=true;                   
-                $this->mail->Username='burgerfisi@gmail.com'; 
-                $this->mail->Password='osjn kmwm wcna klut'; 
+                $this->mail->Username=getUsuario(); 
+                $this->mail->Password=getContrasenia(); 
                 $this->mail->SMTPSecure='ssl';
                 $this->mail->Port=465; 
 
 
                 //Recipients
-                $this->mail->setFrom('burgerfisi@gmail.com', 'BurgerFisi');
+                $this->mail->setFrom(getUsuario(), 'BurgerFisi');
                 $this->mail->addAddress($txtCorreo); 
 
 
@@ -33,7 +34,7 @@ use PHPMailer\PHPMailer\Exception;
                 $this->mail->Subject = $codigo.' es tu codigo de verificacion';
                 $this->mail->Body    = '<style>
                                     p {
-                                        font-size: 18px;
+                                        font-size: 22px;
                                         color: #333;
                                         font-family: "Helvetica Neue", Arial, sans-serif;
                                     }

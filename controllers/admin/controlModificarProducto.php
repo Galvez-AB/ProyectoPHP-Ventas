@@ -1,17 +1,20 @@
 <?php
+if (session_status() == PHP_SESSION_NONE)
+    session_start();
+
 class ControlModificarProductos{
     private $mensaje;
     private $ePlatos;
-    private $controlProductos;
+    private $controlador;
+
     public function __construct() {
         include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/views/formMensajeSistema.php');  
         include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/models/Eplatos.php'); 
         include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/controllers/admin/controlProductos.php');
         $this->mensaje = new formMensajeSistema();
         $this->ePlatos = new Eplatos();
-        $this->controlProductos=new ControlProductos();
+        $this->controlador=new ControlProductos();
     }
-
 
     public function ejecutarPost(){
         $btnGuardar = isset($_POST['btnguardar']) ? $_POST['btnguardar'] : null;
@@ -26,32 +29,32 @@ class ControlModificarProductos{
             $tipoImagen=strtolower(pathinfo($nomImagen,PATHINFO_EXTENSION));
             $estado = $_POST['estado'];
 
-            ?><script>
-            if(window.history.replaceState)
-                window.history.replaceState(null,null,'http://localhost/ProyectoDSW/controllers/admin/controlProductos.php?mostrarMenuProductos=true');
-            </script><?php
+            if ($this->validarNombre($nombre) && $this->validarPrecio($precio) &&
+            $this->validarDescripcion($desc)) {
 
-            if ($this->validarNombre($nombre) && $this->validarPrecio($precio) && $this->validarDescripcion($desc)) {
                 $this->ePlatos->actualizarPlatos($nombre,$precio,$desc,$estado,$idPlato);
 
-                if($this->validarImagen($tipoImagen)){
-                    $plato=$this->ePlatos->obtenerPlato($idPlato);
-                    $ruta=$plato['imagen'];
-                    $rutaAbs=$_SERVER['DOCUMENT_ROOT'].$ruta;
-                    
-                    try {
-                        unlink($rutaAbs);
-                        $ruta="/ProyectoDSW/public/img/platos/".$idPlato.".".$tipoImagen;
-                        $rutaAbs=$_SERVER['DOCUMENT_ROOT'].$ruta;
-                        $this->ePlatos->insertarImagen($idPlato,$ruta);
-                        move_uploaded_file($imagen,$rutaAbs);
-                    } catch (\Throwable $th) {
-                        $this->controlProductos->menuProductoShow();
-                        $this->mensaje->formMensajeProcesoCompletoAdvertencia('Error al modificar la imagen');
-                    }
+                if($imagen){
+                    if($this->validarImagen($tipoImagen)){
+                        $plato=$this->ePlatos->obtenerPlato($idPlato);
+                        try {
+                            $ruta=$plato['imagen'];
+                            $rutaAbs=$_SERVER['DOCUMENT_ROOT'].$ruta;
+                            unlink($rutaAbs);
+
+                            $ruta="/ProyectoDSW/public/img/platos/".$idPlato.".".$tipoImagen;
+                            $rutaAbs=$_SERVER['DOCUMENT_ROOT'].$ruta;
+                            $this->ePlatos->insertarImagen($idPlato,$ruta);
+                            move_uploaded_file($imagen,$rutaAbs);
+                        } catch (Throwable $t) {
+                            echo 'Throwable capturado: ' . $t->getMessage();
+                            echo 'No se pudo modificar la imagen';
+                        }
+                    } else {
+                        echo 'El archivo ingresado no es una imagen';
+                    }   
                 }
-                $this->controlProductos->menuProductoShow();
-                $this->mensaje->formMensajeProcesoCompleto('El producto ha sido Modificado');
+                $this->controlador->menuProductoShow();
             } else {
                 $this->mensaje->formMensajeValidarDatosAdmin();
             }
@@ -63,21 +66,23 @@ class ControlModificarProductos{
     public function validarBoton($boton){
         return(isset($boton));	
     }
+
     public function validarNombre($texto){
-        return (!empty($texto)&&strlen($texto)<200);
+        return (strlen($texto)<200);
     }
+
     public function validarPrecio($precio){
-        return (!empty($precio) && is_numeric($precio) && $precio > 0);
+        return (is_numeric($precio) && $precio > 0);
     }
+
     public function validarDescripcion($desc){
-        return (!empty($desc) && strlen($desc) <= 200);
+        return (strlen($desc) < 300);
     }
+
     public function validarImagen($ext){
         return ($ext=="jpg"||$ext=="png"||$ext=="jpeg");
     }
 }
-
-
 
 $controlador = new ControlModificarProductos();
 $controlador->ejecutarPost();

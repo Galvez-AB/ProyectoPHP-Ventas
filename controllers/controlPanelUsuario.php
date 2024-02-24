@@ -14,9 +14,8 @@ class ControlPanel {
     }
     public function ejecutarAccion() {
         if (isset($_POST['accion']) && $_POST['accion'] == 'iniciarSesion') {
-                include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/views/formAutenticarUsuario.php');   
-                $objFormAutenticar = new formAutenticarUsuario();
-                $objFormAutenticar -> formAutenticarUsuarioShow();
+            header("Location: /ProyectoDSW/views/formAutenticarUsuario.php");
+            exit();
         }
     }
 

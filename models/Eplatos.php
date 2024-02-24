@@ -2,7 +2,7 @@
 	include_once($_SERVER['DOCUMENT_ROOT'] . "/ProyectoDSW/models/conexion.php");
 
 
-    class Eplatos extends connectionBD{
+    class Eplatos{
 
 
         public function obtenerPlatos(){

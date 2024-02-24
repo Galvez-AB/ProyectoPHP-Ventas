@@ -153,9 +153,9 @@ class formPanelCliente{
                     <?php
                     $totalGeneral = 0;
                     foreach ($detallesCarrito as $producto) {
-                        $nombre = $producto['nombre']; 
-                        $precio = $producto['precio']; 
-                        $cantidad = $producto['cantidad']; 
+                        $nombre = $producto['nombre'];
+                        $precio = $producto['precio'];
+                        $cantidad = $producto['cantidad'];
                         $totalProducto = $precio * $cantidad;
 
                         echo "<tr>
@@ -178,10 +178,19 @@ class formPanelCliente{
             ?>
         </div>
         <div class="panelPedidosBoton">
-            <button>Realizar Pedido</button>
+            <form method="POST" action="/ProyectoDSW/controllers/client/controlRealizarPedido.php">
+                <?php
+                // Envia los detalles del pedido
+                foreach ($detallesCarrito as $producto) {
+                    echo '<input type="hidden" name="productos[]" value="' . $producto['idPlato'] . '">';
+                }
+                ?>
+                <button type="submit">Realizar el pedido</button>
+            </form>
         </div>
         </body>
         </html>
+
         <?php
     }
    
