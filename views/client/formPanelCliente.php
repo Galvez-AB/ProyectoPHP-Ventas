@@ -1,5 +1,5 @@
 <?php
-session_start(); 
+//session_start(); 
 class formPanelCliente{
     public function formPanelCabecera($nombreUsuario){
         $totalProductos = isset($_SESSION['carrito']) ? array_sum($_SESSION['carrito']) : 0;
@@ -31,7 +31,7 @@ class formPanelCliente{
                         <img src="http://localhost/ProyectoDSW/public/icons/user.svg">
                         <span class="nombre-usuario"><?php echo htmlspecialchars($nombreUsuario, ENT_QUOTES, 'UTF-8'); ?></span>
                         <form action="http://localhost/ProyectoDSW/controllers/client/controlCliente.php" method="POST">
-                            <button type="submit" name="btnSalir" value="salir" >Salir</button>
+                            <button type="submit" name="btnSalir" value="salir">Salir</button>
                         </form>
                    </div>
             </div>
@@ -178,15 +178,17 @@ class formPanelCliente{
             ?>
         </div>
         <div class="panelPedidosBoton">
-            <form method="POST" action="/ProyectoDSW/controllers/client/controlRealizarPedido.php">
-                <?php
-                // Envia los detalles del pedido
-                foreach ($detallesCarrito as $producto) {
-                    echo '<input type="hidden" name="productos[]" value="' . $producto['idPlato'] . '">';
-                }
-                ?>
-                <button type="submit">Realizar el pedido</button>
-            </form>
+ <!--++++++++++++++++++++++++++++++++++-->
+            <?php if (isset($totalGeneral) && $totalGeneral != 0): ?>
+                <form method="POST" action="/ProyectoDSW/controllers/client/controlRealizarPedido.php">
+                    
+                    <!--envia el total-->
+                    <input type="hidden" name="totalGeneral" value="<?php echo $totalGeneral; ?>">
+
+                    <button class="botonRealizarPedido" type="submit" name="btnRealizarPedido">Realizar el pedido</button>
+                </form>
+            <?php endif; ?>
+
         </div>
         </body>
         </html>
@@ -195,5 +197,7 @@ class formPanelCliente{
     }
    
 }
-
+          
 ?>
+                   
+                   
