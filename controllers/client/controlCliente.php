@@ -14,7 +14,7 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/models/Eplatos.php');
             $formInicio->formPanelCabecera($nombreUsuario);
             $formInicio->formPanelMenu($platos);
         }
-        //-------------------------------------------------
+         //-------------------------------------------------
         elseif (isset($_POST['btnPedidos'])){
              if (isset($_SESSION['nombreUsuario'])) {
                  $nombreUsuario = $_SESSION['nombreUsuario'];
@@ -36,15 +36,16 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/models/Eplatos.php');
             }
             $formInicio->formPanelPedido($detallesCarrito);   
         }
-        //----------------------------------------------------------- 
+        //---------------------------------------------------------- 
         elseif (isset($_POST['btnSalir'])){
             $_SESSION = array();
+            //session_unset();
             session_destroy();
             include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/controllers/controlPanelUsuario.php');   
             $controlPanel = new ControlPanel();
             $controlPanel->cargarPanel();
         }
-  
+
     }
 ?>
 

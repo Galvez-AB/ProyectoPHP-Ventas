@@ -31,7 +31,7 @@ class formPanelCliente{
                         <img src="http://localhost/ProyectoDSW/public/icons/user.svg">
                         <span class="nombre-usuario"><?php echo htmlspecialchars($nombreUsuario, ENT_QUOTES, 'UTF-8'); ?></span>
                         <form action="http://localhost/ProyectoDSW/controllers/client/controlCliente.php" method="POST">
-                            <button type="submit" name="btnSalir" value="salir">Salir</button>
+                            <button type="submit" name="btnSalir" value="salir" >Salir</button>
                         </form>
                    </div>
             </div>
@@ -178,7 +178,7 @@ class formPanelCliente{
             ?>
         </div>
         <div class="panelPedidosBoton">
-            <button>Realizar el pedido</button>
+            <button>Realizar Pedido</button>
         </div>
         </body>
         </html>
