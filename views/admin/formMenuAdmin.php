@@ -15,7 +15,7 @@
                     </div>
                     <div class="encabezado-derecha">
                         <div class="informacion">
-                        <p>Grupo 05 -<?= $_SESSION['usuario']['correo']?></p> 
+                        <p><?= $_SESSION['usuario']['correo']?></p> 
                         </div>
                         <div class="icons">
                             <form method="post" action="/ProyectoDSW/controllers/admin/controlAdmin.php">

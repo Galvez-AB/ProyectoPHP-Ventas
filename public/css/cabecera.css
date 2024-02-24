@@ -54,8 +54,19 @@
   
   .icons {
     display: flex;
+    margin-top: 18px;
   }
   
   .icons img {
     margin-right: 5px;
   }
+  .icons button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.icons button:hover {
+    transform: scale(1.3);
+}

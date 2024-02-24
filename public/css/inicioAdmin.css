@@ -1,0 +1,50 @@
+.contenedorMenuAdmin {
+    position: absolute;
+    top: 7vh;
+    left: 268px;
+    padding: 15px;
+}
+
+.Bienvenida {
+    text-align: center;
+    font-size: 24px;
+    color: rgb(73, 48, 0);
+    margin-bottom: 20px; 
+}
+
+.informacionAdmin {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap; 
+}
+
+.imagenAdmin {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 20px; 
+}
+
+.mensajesAdmin {
+    display: flex;
+    flex-direction: column;
+    max-width: 60%; 
+}
+
+.mensaje {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px 0; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.mensaje h2 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.mensaje p {
+    color: #555;
+}
