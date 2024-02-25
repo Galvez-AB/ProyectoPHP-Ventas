@@ -1,7 +1,7 @@
 <?php
 //session_start(); 
-class formPagos{
 
+class formPagos{
     public function formPagoPayPal($totalGeneral){
         ?>
             <!DOCTYPE html>
@@ -15,9 +15,33 @@ class formPagos{
                 <!--  &currency=USD-->
             </head>
             <body>
+                <div>
+                    <h1>Detalles de Pago</h1>
+                    <h3>Precio Total: <?php echo $totalGeneral; ?></h3>
+
+                    <label for="direccion">Dirección de Envío:</label>
+                    <input type="text" id="direccion" name="direccion"><br>
+
+                </div>
+
                 <div id="paypal-button-container" style="max-width:1000px;"></div>
 
                 <script>
+                    // Desactivar el botón de PayPal inicialmente
+                    document.getElementById('paypal-button-container').style.pointerEvents = 'none';
+
+                    // Escuchar el evento de cambio en el campo de dirección
+                    document.getElementById('direccion').addEventListener('input', function() {
+                        var direccion = this.value.trim(); // Obtener el valor de la dirección
+
+                        // Si la dirección está vacía, desactivar el botón de PayPal; de lo contrario, activarlo
+                        if (direccion === '') {
+                            document.getElementById('paypal-button-container').style.pointerEvents = 'none';
+                        } else {
+                            document.getElementById('paypal-button-container').style.pointerEvents = 'auto';
+                        }
+                    });
+
                     paypal.Buttons({
                         style:{
                             color: 'blue',
@@ -34,17 +58,6 @@ class formPagos{
                                 }]
                             });
                         },
-                        onApprove: function(data, actions){
-                            actions.order.capture().then(function (detalles){
-                                Swal.fire({
-                                    title: "Good job!",
-                                    text: "El pago se realizo correctamente",
-                                    icon: "success"
-                                });
-                                console.log(detalles);
-                                //redireccionar 
-                            });  
-                        },
                         onCancel: function(data){
                             Swal.fire({
                             icon: "error",
@@ -53,7 +66,26 @@ class formPagos{
                             timer: 1500
                             });
                             console.log(data);
+                        },
+                        onApprove: function(data, actions){
+                            actions.order.capture().then(function (detalles){
+                                
+                                if(detalles.status == 'COMPLETED'){
+                                    Swal.fire({
+                                        title: "¡Excelente!",
+                                        text: "El pago se ha realizado correctamente",
+                                        icon: "success",
+                                        confirmButtonText: "Aceptar"
+                                        }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            window.location.href = "http://localhost/ProyectoDSW/controllers/client/controlPago.php";
+                                        }
+                                    });
+                                }
+                                //console.log(detalles);//VER LOS DETALLES DE LA COMPRA
+                            });  
                         }
+                        
                     }).render('#paypal-button-container');
                 </script>
 

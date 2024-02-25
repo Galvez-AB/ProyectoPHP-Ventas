@@ -91,21 +91,21 @@
         }
     }
 
-/*
-public function eliminarPLatos($id){
-    $conexion = new ConnectionBD();
-    $con = $conexion->connect();
-    $query = "DELETE FROM plato WHERE idPlato = $id";
-    $result=mysqli_query($con,$query);
-    $conexion->disconnect();
-}
 
-public function actualizarPlatos($nombre,$precio,$desc,$estado,$id){
-    $conexion = new ConnectionBD();
-    $con = $conexion->connect();
-    $query = "UPDATE plato SET nombre='$nombre', precio=$precio, descripcion='$desc',estado=$estado WHERE idPlato=$id";
-    $result=mysqli_query($con,$query);
-    $conexion->disconnect();
-}
-*/
+        // public function eliminarPLatos($id){
+        //     $conexion = new ConnectionBD();
+        //     $con = $conexion->connect();
+        //     $query = "DELETE FROM plato WHERE idPlato = $id";
+        //     $result=mysqli_query($con,$query);
+        //     $conexion->disconnect();
+        // }
+
+        // public function actualizarPlatos($nombre,$precio,$desc,$estado,$id){
+        //     $conexion = new ConnectionBD();
+        //     $con = $conexion->connect();
+        //     $query = "UPDATE plato SET nombre='$nombre', precio=$precio, descripcion='$desc',estado=$estado WHERE idPlato=$id";
+        //     $result=mysqli_query($con,$query);
+        //     $conexion->disconnect();
+        // }
+
 ?>

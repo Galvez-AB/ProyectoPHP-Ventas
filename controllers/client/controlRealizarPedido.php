@@ -24,7 +24,9 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/views/client/formPanelCli
 
         // header("Location: /ProyectoDSW/views/client/formPanelCliente.php");
         // exit();
-        echo  "error";
+        header("Location: http://localhost/ProyectoDSW/views/formHackeo.html");
+        exit();
+        //echo  "error";
     }
 
 ?>
