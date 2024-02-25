@@ -1,0 +1,7 @@
+INSERT INTO Usuario (idUsuario, nombre,apellido,txtPassword,correo, rol) VALUES
+(1, 'Milagros', 'Saavedra','123456789', 'Milagros@gmail.com','admin'),
+(2, 'Esther', 'Terrones','11111111111', 'Esther@gmail.com', 'user'),
+(3, 'Daniel', 'Gutierrez', '111122222','Daniel@gmail.com', 'user'),
+(4, 'Juan', 'Tapia','1234567810','Juan@gmail.com','admin'),
+(5, 'Alejandra', 'Dioses','222222222','Alejandra@gmail.com','user'),
+(6, 'Diego', 'Monteza','333333333','Diego@gmail.com','user');

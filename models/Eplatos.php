@@ -8,7 +8,7 @@
         public function obtenerPlatos(){
             $conexion = new ConnectionBD();
             $con = $conexion->connect();
-            $query = "SELECT * FROM plato";
+            $query = "SELECT * FROM plato WHERE visible = 1";
             $result = mysqli_query($con, $query);
             $platos = array();
             while ($row = mysqli_fetch_assoc($result)) {
@@ -21,7 +21,7 @@
         public function obtenerPlatosActivos(){
             $conexion = new ConnectionBD();
             $con = $conexion->connect();
-            $query = "SELECT * FROM plato WHERE estado = 1";
+            $query = "SELECT * FROM plato WHERE estado = 1 AND visible = 1";
             $result = mysqli_query($con, $query);
             $platos = array();
             while ($row = mysqli_fetch_assoc($result)) {
@@ -41,10 +41,10 @@
         }
 
 
-        public function actualizarPlatos($nombre,$precio,$desc,$estado,$id){
+        public function actualizarPlatos($precio,$desc,$estado,$id){
             $conexion = new ConnectionBD();
             $con = $conexion->connect();
-            $query = "UPDATE plato SET nombre='$nombre', precio=$precio, descripcion='$desc',estado=$estado WHERE idPlato=$id";
+            $query = "UPDATE plato SET precio=$precio, descripcion='$desc',estado=$estado WHERE idPlato=$id";
             $result=mysqli_query($con,$query);
             $conexion->disconnect();
         }
@@ -64,7 +64,7 @@
         public function eliminarPLatos($id){
             $conexion = new ConnectionBD();
             $con = $conexion->connect();
-            $query = "DELETE FROM plato WHERE idPlato = $id";
+            $query = "UPDATE plato SET estado=0, visible=0 WHERE idPlato=$id";
             $result=mysqli_query($con,$query);
             $conexion->disconnect();
         }
@@ -90,4 +90,22 @@
             return $maxId;
         }
     }
+
+/*
+public function eliminarPLatos($id){
+    $conexion = new ConnectionBD();
+    $con = $conexion->connect();
+    $query = "DELETE FROM plato WHERE idPlato = $id";
+    $result=mysqli_query($con,$query);
+    $conexion->disconnect();
+}
+
+public function actualizarPlatos($nombre,$precio,$desc,$estado,$id){
+    $conexion = new ConnectionBD();
+    $con = $conexion->connect();
+    $query = "UPDATE plato SET nombre='$nombre', precio=$precio, descripcion='$desc',estado=$estado WHERE idPlato=$id";
+    $result=mysqli_query($con,$query);
+    $conexion->disconnect();
+}
+*/
 ?>

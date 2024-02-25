@@ -21,7 +21,6 @@ class ControlModificarProductos{
 
         if ($this->validarBoton($btnGuardar)){
             $idPlato = $_POST['idPlato'];
-            $nombre = $_POST['nombre'];
             $precio = $_POST['precio'];
             $desc = $_POST['descripcion'];
             $imagen=$_FILES["imagen"]["tmp_name"];
@@ -29,10 +28,10 @@ class ControlModificarProductos{
             $tipoImagen=strtolower(pathinfo($nomImagen,PATHINFO_EXTENSION));
             $estado = $_POST['estado'];
 
-            if ($this->validarNombre($nombre) && $this->validarPrecio($precio) &&
+            if ($this->validarPrecio($precio) &&
             $this->validarDescripcion($desc)) {
 
-                $this->ePlatos->actualizarPlatos($nombre,$precio,$desc,$estado,$idPlato);
+                $this->ePlatos->actualizarPlatos($precio,$desc,$estado,$idPlato);
 
                 if($imagen){
                     if($this->validarImagen($tipoImagen)){
@@ -65,10 +64,6 @@ class ControlModificarProductos{
     }
     public function validarBoton($boton){
         return(isset($boton));	
-    }
-
-    public function validarNombre($texto){
-        return (strlen($texto)<200);
     }
 
     public function validarPrecio($precio){
