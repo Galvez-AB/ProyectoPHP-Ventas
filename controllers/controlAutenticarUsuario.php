@@ -22,26 +22,22 @@ class ControlAutenticarUsuario {
                 if($this->eUsuario->validarUsuario($txtUser)){
                     if($this->eUsuario->validarContrasenia($txtUser, $txtPassword)){
                         $usuario=$this->eUsuario->obtenerUsuario($txtUser);
+                        session_start();
                         if($usuario['rol']=='admin'){
-                            session_start();
                             $_SESSION['usuario']=$usuario;
                             header("Location: /ProyectoDSW/views/admin/formInicioAdmin.php");
                             exit();
                         }
                         else{
-                            session_start(); 
                             include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/views/client/formPanelCliente.php');
                             include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/models/Eplatos.php');
                             $modeloPlatos = new Eplatos();
                             $platos = $modeloPlatos->obtenerPlatosActivos(); 
                             $formInicio=new formPanelCliente();
                             //-------------------------------------------------
-                            include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/models/Eusuario.php');
-                            $modeloUsuario = new Eusuario();
-                            $Usuario = $modeloUsuario->obtenerUsuario($txtUser); 
-                            $_SESSION['nombreUsuario'] = $Usuario['nombre'];
-                            $nombreUsuario = $_SESSION['nombreUsuario'];  
-                            $formInicio->formPanelCabecera($nombreUsuario);
+                            $_SESSION['nombreUsuario'] = $usuario['nombre'];
+
+                            $formInicio->formPanelCabecera($_SESSION['nombreUsuario']);
                             //-------------------------------------------------
                             $formInicio->formPanelMenu($platos);
                             }
