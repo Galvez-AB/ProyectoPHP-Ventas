@@ -34,7 +34,7 @@ $menuAdmin->mostrarBarraLateral();
                         <div class="seccion">
                             <div>
                                 <label>Nombre</label>
-                                <input type="text" name="nombre" value="<?php echo $plato['nombre'];?>" required>
+                                <input type="text" value="<?php echo $plato['nombre'];?>" readonly style="cursor: not-allowed;">
                             </div>
                             <div >
                                 <label>Precio</label>
