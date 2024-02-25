@@ -5,46 +5,90 @@
     padding: 15px;
 }
 
-.Bienvenida {
-    text-align: center;
-    font-size: 24px;
-    color: rgb(73, 48, 0);
-    margin-bottom: 20px; 
-}
-
 .informacionAdmin {
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-wrap: wrap; 
-}
-
-.imagenAdmin {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin: 20px; 
+    margin-left: 11px;
+    margin-right: 11px;
 }
 
 .mensajesAdmin {
-    display: flex;
-    flex-direction: column;
-    max-width: 60%; 
+    display:flex;
+    flex-direction: row;
+    width: 800px; 
+    height: 200px;
 }
 
 .mensaje {
-    background: #f8f9fa;
+    background: #cce6ff;
     padding: 20px;
     border-radius: 10px;
-    margin: 10px 0; 
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin: 20px;
+    width: 350px; 
+    height: 130px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
 }
 
 .mensaje h2 {
-    color: #333;
+    color: rgb(0, 0, 211);
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .mensaje p {
     color: #555;
+    text-align: center;
+}
+/*------------------------------------------------------------------------*/
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border: 2px solid #ccc; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+    background-color: #cce5ff; 
+    padding: 20px; 
+    margin: 30px; 
+    border-radius: 10px;
+}
+
+.accesorios, .datosAdmin {
+    flex: 1;
+}
+
+.accesorios img {
+    width: 220px;
+    height: 220px; 
+    display: block; 
+    margin-left: 25px;
+    border: 2px;
+}
+
+.datosAdmin h3 {
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px 0;
+    background-color:rgb(57, 107, 216);
+    text-align: center;
+    color: white;
+}
+.datosAdmin p {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    background-color:#ffffff;
+}
+
+
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .accesorios, .datosAdmin {
+        flex: none;
+        width: 100%;
+    }
 }

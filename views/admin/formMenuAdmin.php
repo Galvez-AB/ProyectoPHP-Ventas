@@ -15,7 +15,7 @@
                     </div>
                     <div class="encabezado-derecha">
                         <div class="informacion">
-                        <p><?= $_SESSION['usuario']['correo']?></p> 
+                        <p>¡Bienvenido(a), <?= $_SESSION['usuario']['nombre']?>!</p> 
                         </div>
                         <div class="icons">
                             <form method="post" action="/ProyectoDSW/controllers/admin/controlAdmin.php">
