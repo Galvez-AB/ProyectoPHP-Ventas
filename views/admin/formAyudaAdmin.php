@@ -31,7 +31,7 @@ $menuAdmin->mostrarBarraLateral();
         
         <div class="preguntasFrecuentes">
             <h2>Preguntas Frecuentes</h2>
-            <p><b>¿Como puedo controlar lo quese muestra en mi mnenu de ventas?</b></p>
+            <p><b>¿Como puedo controlar lo que se muestra en mi menu de ventas?</b></p>
             <p>Se debe ingresar al apartado de gestionar productos y cambiar el estado a no disponible </p>
             <p><b>¿Puedo recuperar un producto eliminado?</b></p>
             <p>No, una vez eliminado el producto se borra de la base de datos</p>
@@ -42,9 +42,9 @@ $menuAdmin->mostrarBarraLateral();
             <p><b>Paso 1:</b> Ingresar al apartado de Gestionar productos</p>
             <p><b>Paso 3:</b> Click en agregar(el boton se encuentra en al parte superior derecha)</p>
             <p><b>Paso 4:</b> Complete los campos correctamente, caso contrario no podra continuar</p>
-            <p><b>Paso 5:</b> Una vez que copletado, click en guardar</p>
+            <p><b>Paso 5:</b> Una vez que completado, click en guardar</p>
             <p><b>System:</b> El sistema de redirigira a la ventana principal</p>
-            <p>               donde podra visualizar los cambios de su producto.</p>
+            <p>               donde podra visualizar su nuevo producto.</p>
         </div>
     </div>
 </body>
