@@ -15,14 +15,17 @@
             $controlador=new ControlProductos();
             $controlador->menuProductoShow();
         } elseif (isset($_POST['btnEstadisticas'])){
-            header("Location: /ruta/estadisticas"); // Reemplaza "/ruta/estadisticas" con la ruta deseada para las estadísticas
+            include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/controllers/admin/controlEstadisticas.php');
+            $controlador = new ControlEstadisticas();
+            $controlador->menuEstadisticasShow();
         }
         elseif (isset($_POST['btnPedidos'])){
             include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/controllers/admin/controlPedidos.php');
             $controlador = new ControlPedidos();
             $controlador->menuPedidosShow();
         } elseif (isset($_POST['btnAyuda'])){
-            header("Location: /ruta/ayuda");
+            header("Location: /ProyectoDSW/views/admin/formAyudaAdmin.php");
+            exit();
         }
     }
 ?>

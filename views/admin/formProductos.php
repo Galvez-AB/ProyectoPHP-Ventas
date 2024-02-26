@@ -38,7 +38,7 @@ $menuAdmin->mostrarBarraLateral();
                             <td><?= $plato['nombre'] ?></td>
                             <td><?= $plato['precio'] ?></td>
                             <td>
-                                <img style="width:70px; height: 70px;"src="<?= $plato['imagen'] ?>">
+                                <img style="width:50px; height: 50px;"src="<?= $plato['imagen'] ?>">
                             </td>
                             <td>
                                 <textarea class="descripcion" readonly><?= $plato['descripcion'] ?></textarea>

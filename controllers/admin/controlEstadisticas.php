@@ -2,7 +2,7 @@
 if (session_status() == PHP_SESSION_NONE)
     session_start();
 
-class ControlPedidos {
+class ControlEstadisticas {
     private $mensaje;
 
     public function __construct() {
@@ -13,14 +13,14 @@ class ControlPedidos {
         //validacion de botones 
     }
 
-    public function menuPedidosShow(){
-        header("Location: /ProyectoDSW/views/admin/formPedidosAdmin.php");
+    public function menuEstadisticasShow(){
+        header("Location: /ProyectoDSW/views/admin/formEstadisticasAdmin.php");
         exit();
     }
 }
 
 if (basename(__FILE__) === basename($_SERVER["SCRIPT_FILENAME"])){
-    $controlador = new ControlPedidos();
+    $controlador = new ControlEstadisticas();
     $controlador->ejecutarPost();
 }
 ?>

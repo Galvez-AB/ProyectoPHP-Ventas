@@ -74,7 +74,7 @@
                         </li>
                         <li>  
                             <form method="post" action="/ProyectoDSW/controllers/admin/controlAdmin.php">
-                                <button type="submit" id="btnPedidos">
+                                <button type="submit" name="btnPedidos">
                                     <img src="/ProyectoDSW/public/icons/pedidos.svg">
                                     <a>Gestionar pedidos</a>
                                 </button>
@@ -82,7 +82,7 @@
                         </li>
                         <li>  
                             <form method="post" action="/ProyectoDSW/controllers/admin/controlAdmin.php">
-                                <button type="submit" id="btnAyuda">
+                                <button type="submit" name="btnAyuda">
                                     <img src="/ProyectoDSW/public/icons/ayuda.svg">
                                     <a>Ayuda</a>
                                 </button>
