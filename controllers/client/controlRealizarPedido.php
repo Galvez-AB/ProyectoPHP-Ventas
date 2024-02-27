@@ -7,6 +7,13 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/views/client/formPanelCli
         if (isset($_SESSION['nombreUsuario'])) {
             $nombreUsuario = $_SESSION['nombreUsuario'];
         }
+        //--------------------------------------------------
+        if(isset($_SESSION['ID'])) {
+            $idUsuario = $_SESSION['ID'];
+        }
+        if (isset($_SESSION['carrito']) && count($_SESSION['carrito']) > 0) {
+        }
+        //--------------------------------------------------
         $formInicio=new formPanelCliente();
         $formInicio->formPanelCabecera($nombreUsuario);
         

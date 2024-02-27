@@ -14,11 +14,14 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/models/Eplatos.php');
             $formInicio->formPanelCabecera($nombreUsuario);
             $formInicio->formPanelMenu($platos);
         }
-         //-------------------------------------------------
         elseif (isset($_POST['btnPedidos'])){
              if (isset($_SESSION['nombreUsuario'])) {
                  $nombreUsuario = $_SESSION['nombreUsuario'];
              }
+             //------------------------------------------------
+             if(isset($_SESSION['ID'])) {
+                $idUsuario = $_SESSION['ID'];
+            }//------------------------------------------------
              $modeloPlatos = new Eplatos();
              $platos = $modeloPlatos->obtenerPlatos();
              $formInicio=new formPanelCliente();

@@ -1,7 +1,8 @@
-INSERT INTO Usuario (idUsuario, nombre,apellido,txtPassword,correo, rol) VALUES
-(1, 'Milagros', 'Saavedra','123456789', 'Milagros@gmail.com','admin'),
-(2, 'Esther', 'Terrones','11111111111', 'Esther@gmail.com', 'user'),
-(3, 'Daniel', 'Gutierrez', '111122222','Daniel@gmail.com', 'user'),
-(4, 'Juan', 'Tapia','1234567810','Juan@gmail.com','admin'),
-(5, 'Alejandra', 'Dioses','222222222','Alejandra@gmail.com','user'),
-(6, 'Diego', 'Monteza','333333333','Diego@gmail.com','user');
+INSERT INTO `usuario` (`idUsuario`, `nombre`, `apellido`, `txtPassword`, `correo`, `rol`) VALUES
+(1, 'Burger', 'Fisi', '123456789', 'burgerfisi@gmail.com', 'admin'),
+(2, 'Esther', 'Terrones', '11111111111', 'esther.terrones@unmsm.edu.pe', 'user'),
+(3, 'Betcy', 'Atoccsa', '111122222', 'betcy.atoccsa@unmsm.edu.pe', 'user'),
+(4, 'Jair', 'Cachay', '1234567810', 'jair.cachay@unmsm.edu.pe', 'user'),
+(5, 'Alder', 'Galvez', '222222222', 'alder.galvez@unmsm.edu.pe', 'user'),
+(6, 'Fabricio', 'Oporto', '333333333', 'fabricio.oporto@unmsm.edu.pe', 'user'),
+(7, 'Abner', 'Cano', '11111111111', 'abner.cano@unmsm.edu.pe', 'user');

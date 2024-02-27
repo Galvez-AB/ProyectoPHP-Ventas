@@ -1,8 +1,9 @@
 <?php
-//session_start(); 
+session_start(); 
 class formPagos{
 
     public function formPagoPayPal($totalGeneral){
+        $carrito = json_encode($_SESSION['carrito']); 
     ?>
     <!DOCTYPE html>
     <html lang="en">
@@ -26,8 +27,9 @@ class formPagos{
         <div class="button-container">
             <div id="paypal-button-container" class="paypal-buttons-container"></div>
         </div>
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script>
+            var carrito = <?php echo $carrito; ?>; 
             paypal.Buttons({
                 style:{
                     color: 'blue',
@@ -52,23 +54,36 @@ class formPagos{
                     });
                     console.log(data);
                 },
-                onApprove: function(data, actions){
-                    actions.order.capture().then(function (detalles){
-                        if(detalles.status == 'COMPLETED'){
-                            Swal.fire({
-                                title: "¡Excelente!",
-                                text: "El pago se ha realizado correctamente",
-                                icon: "success",
-                                confirmButtonText: "Aceptar"
-                            }).then((result) => {
-                                if (result.isConfirmed) {
-                                    window.location.href = "http://localhost/ProyectoDSW/controllers/client/controlPago.php";
+                onApprove: async function(data, actions) { 
+                const detalles = await actions.order.capture();
+                if (detalles.status == 'COMPLETED') {
+                    var direccionEnvio = document.getElementById('direccion').value;
+                        $.ajax({
+                                url: 'http://localhost/ProyectoDSW/controllers/client/controlGuardarPedido.php',
+                                type: 'POST',
+                                contentType: 'application/json',
+                                data: JSON.stringify({
+                                    direccion: direccionEnvio,
+                                    totalGeneral: <?php echo $totalGeneral; ?>                                     
+                                }),
+                                success: function(response) {
+                                    Swal.fire({
+                                        title: "¡Excelente!",
+                                        text: "El pago se ha realizado correctamente",
+                                        icon: "success",
+                                        confirmButtonText: "Aceptar"
+                                    }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            window.location.href = "http://localhost/ProyectoDSW/controllers/client/controlPago.php";
+                                        }
+                                    });
+                                },
+                                error: function(xhr, status, error) {
+                                    console.error('Error:', error);
                                 }
                             });
-                        }
-                    });  
+                    }
                 }
-                
             }).render('#paypal-button-container');
         </script>
 

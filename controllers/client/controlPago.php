@@ -12,7 +12,10 @@
     if (isset($_SESSION['nombreUsuario'])) {
          $nombreUsuario = $_SESSION['nombreUsuario'];
     }
-    
+     //------------------------------------------------
+     if(isset($_SESSION['ID'])) {
+      $idUsuario = $_SESSION['ID'];
+    }//------------------------------------------------
     $formInicio->formPanelCabecera($nombreUsuario);
     $formInicio->formPanelMenu($platos);
 ?>

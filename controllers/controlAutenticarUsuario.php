@@ -36,6 +36,7 @@ class ControlAutenticarUsuario {
                             $formInicio=new formPanelCliente();
                             //-------------------------------------------------
                             $_SESSION['nombreUsuario'] = $usuario['nombre'];
+                            $_SESSION['ID'] = $usuario['idUsuario']; 
 
                             $formInicio->formPanelCabecera($_SESSION['nombreUsuario']);
                             //-------------------------------------------------
