@@ -21,13 +21,12 @@ class Eusuario{
         $con = $conexion->connect();
         $txtUser = mysqli_real_escape_string($con, $txtUser);
         $txtPassword = mysqli_real_escape_string($con, $txtPassword);
-        $query = "SELECT * FROM Usuario WHERE correo = '$txtUser' AND txtPassword = '$txtPassword'";
+        $query = "SELECT txtPassword FROM Usuario WHERE correo = '$txtUser'";
         $result = mysqli_query($con, $query);
         $conexion->disconnect();
         if ($result && mysqli_num_rows($result) > 0) {
-            return true;
-        } else {
-            return false;
+            $password_hash=mysqli_fetch_assoc($result)['txtPassword'];
+            return password_verify($txtPassword,$password_hash);
         }
     }
 
@@ -38,6 +37,7 @@ class Eusuario{
         $txtApellido = mysqli_real_escape_string($con, $txtApellido);
         $txtCorreo = mysqli_real_escape_string($con, $txtCorreo);
         $txtPassword = mysqli_real_escape_string($con, $txtPassword);
+        $txtPassword = password_hash($txtPassword,PASSWORD_DEFAULT,['cost'=>4]);
         $query = "INSERT INTO Usuario (nombre, apellido, correo, txtPassword, rol) 
             VALUES ('$txtNombre', '$txtApellido', '$txtCorreo', '$txtPassword', 'user')";
         $result = mysqli_query($con, $query);
