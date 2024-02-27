@@ -28,6 +28,22 @@ class formPagos{
         </div>
 
         <script>
+
+            // Desactivar el botón de PayPal inicialmente
+            document.getElementById('paypal-button-container').style.pointerEvents = 'none';
+
+            // Escuchar el evento de cambio en el campo de dirección
+            document.getElementById('direccion').addEventListener('input', function() {
+            var direccion = this.value.trim(); // Obtener el valor de la dirección
+
+            // Si la dirección está vacía, desactivar el botón de PayPal; de lo contrario, activarlo
+                if (direccion === '') {
+                document.getElementById('paypal-button-container').style.pointerEvents = 'none';
+                } else {
+                    document.getElementById('paypal-button-container').style.pointerEvents = 'auto';
+                }
+            });
+
             paypal.Buttons({
                 style:{
                     color: 'blue',
@@ -66,6 +82,7 @@ class formPagos{
                                 }
                             });
                         }
+                        //console.log(detalles);//VER LOS DETALLES DE LA COMPRA
                     });  
                 }
                 
