@@ -2,6 +2,12 @@
 if (session_status() == PHP_SESSION_NONE)
     session_start();
 
+if (!isset($_SESSION['usuario'])) {
+    session_destroy();
+    header("Location: /ProyectoDSW/views/formHackeo.html");
+    exit();
+}
+
 $plato=$_SESSION['plato'];
 
 include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/views/admin/formMenuAdmin.php');

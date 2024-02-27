@@ -2,6 +2,12 @@
 if (session_status() == PHP_SESSION_NONE)
     session_start();
 
+if (!isset($_SESSION['usuario'])) {
+    session_destroy();
+    header("Location: /ProyectoDSW/views/formHackeo.html");
+    exit();
+}
+
 $platos=$_SESSION['platos'];
 
 
