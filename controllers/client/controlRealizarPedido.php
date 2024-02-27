@@ -12,19 +12,14 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/views/client/formPanelCli
         
         if (isset($_POST['totalGeneral'])) {
             $totalGeneral = $_POST['totalGeneral'];
-            //echo "<p>Total a pagar: $totalGeneral</p>";
-            $formDetalles=new formPagos();
-            $formDetalles->formDetallesCompra($totalGeneral);
-
+            $formPago=new formPagos();
+            $formPago->formPagoPayPal($totalGeneral);
         }
-        $formPago=new formPagos();
-        $formPago->formPagoPayPal($totalGeneral);
-
+        
     } else {
 
-        // header("Location: /ProyectoDSW/views/client/formPanelCliente.php");
-        // exit();
-        echo  "error";
+        header("Location: http://localhost/ProyectoDSW/views/formHackeo.html");
+        exit();
     }
 
 ?>

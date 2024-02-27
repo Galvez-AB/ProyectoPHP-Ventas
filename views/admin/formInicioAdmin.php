@@ -20,22 +20,29 @@ $menuAdmin->mostrarBarraLateral();
 </head>
 <body>
     <div class="contenedorMenuAdmin">
-        <div class="Bienvenida">
-            ¡Bienvenido a nuestro sistema, <?= $_SESSION['usuario']['nombre'].' '.$_SESSION['usuario']['apellido']?>!
+        <div class="container">
+            <div class="accesorios">
+                 <img id="admin" src="http://localhost/ProyectoDSW/public/img/system/Dadmin.png">
+            </div>
+            <div class="datosAdmin">
+                <h3>Datos del Administrador</h3>
+                <p>Nombre: <?= $_SESSION['usuario']['nombre']?></p>
+                <p>Apellido: <?= $_SESSION['usuario']['apellido']?></p>
+                <p>Email: <?= $_SESSION['usuario']['correo']?></p>
+            </div>
         </div>
         <div class="informacionAdmin">
-            
             <div class="mensajesAdmin">
                 <div class="mensaje">
-                    <h2>Mensaje Importante </h2>
-                    <p>Este es un mensaje importante para el administrador.</p>
+                    <h2>¡Bienvenido al sistema!</h2>
+                    <p>Nuestro sistema cuenta con apartados<br>de gestion y muestras de ventas</p>
                 </div>
                 <div class="mensaje">
-                    <h2>Otro Msj</h2>
-                    <p>Probadno estilos hasta que quede uno uuuu.....</p>
+                    <h2>¡Como administrador!</h2>
+                    <p>Tu papel es fundamental para el<br> gestión de nuestro sistema</p>
                 </div>
             </div>
         </div>
     </div>
-   
-</body>
+    </body>
+
