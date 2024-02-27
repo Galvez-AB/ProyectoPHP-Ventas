@@ -7,9 +7,6 @@
             ?>
             <head>
                 <link rel="stylesheet" href="http://localhost/ProyectoDSW/public/css/mensajeSistema.css">  
-                <script>
-                    function regresar() {window.history.back();}
-                </script>
             </head>
             <body>
                 <div class="container-mensaje-sistema">
@@ -18,7 +15,7 @@
                         <img src="http://localhost/ProyectoDSW/public/img/system/alerta.jpg">
                         <p class="texto">¡ACCION NO PERMITIDA!</p>
                         <p> Hubo un problema al validar los datos </p>
-                        <button id="aceptar" type="button" onclick="regresar()" >Aceptar</button>
+                        <button id="aceptar" type="button" onclick="history.back()" >Aceptar</button>
                     </div> 
                 </div>            
             </body><?php
@@ -66,9 +63,6 @@
             ?>
             <head>
                 <link rel="stylesheet" href="http://localhost/ProyectoDSW/public/css/autenticarUsuario.css">
-                <script>
-                    function regresar() {window.history.back();}
-                </script>
             </head>
             <body>
                 <div class="formulario">
@@ -76,7 +70,7 @@
                     <div>
                         <?php echo $texto; ?>
                     </div>
-                    <button id="aceptar" type="button" onclick="regresar()" >Regresar</button>
+                    <button id="aceptar" type="button" onclick="history.back()" >Regresar</button>
                 </div>
             </body>
             <?php
