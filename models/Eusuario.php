@@ -58,5 +58,21 @@ class Eusuario{
             return null; 
         }
     }
+    public function obtenerUsuarioPorId($idUsuario) {
+        $conexion = new ConnectionBD();
+        $con = $conexion->connect();
+        $query = "SELECT * FROM usuario WHERE idUsuario = ?";
+        $stmt = mysqli_prepare($con, $query);
+        mysqli_stmt_bind_param($stmt, "i", $idUsuario);
+        mysqli_stmt_execute($stmt);
+        $result = mysqli_stmt_get_result($stmt);
+        $conexion->disconnect();
+        if ($result && mysqli_num_rows($result) > 0) {
+            $usuario = mysqli_fetch_assoc($result);
+            return $usuario;
+        } else {
+            return null;
+        }
+    }
 }
 ?>

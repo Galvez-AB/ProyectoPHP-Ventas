@@ -26,10 +26,12 @@ class controlGuardarPedido{
         try {
             $pedidoId = $this->ePedidos->agregarPedido($idUsuario, $direccion);
             //--------------------------------------------------------------------------
+            $_SESSION['idPedido'] = $pedidoId;
+            //--------------------------------------------------------------------------
             foreach ($_SESSION['carrito'] as $idPlato => $cantidad) {
                 $this->ePedidos->agregarDetallesPedido($pedidoId, $idPlato, $cantidad);
             }
-            $serie = "B" . str_pad($pedidoId, 6, "0", STR_PAD_LEFT); 
+            $serie = "B" . str_pad($pedidoId, 5, "0", STR_PAD_LEFT); 
             $this->ePedidos->agregarBoleta($pedidoId, $serie, $totalGeneral);
             //--------------------------------------------------------------------------
             echo json_encode(['success' => true, 'message' => 'Pedido guardado con éxito', 'pedidoId' => $pedidoId]);

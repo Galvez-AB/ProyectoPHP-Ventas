@@ -87,10 +87,28 @@ class formPagos{
                                         title: "¡Excelente!",
                                         text: "El pago se ha realizado correctamente",
                                         icon: "success",
-                                        confirmButtonText: "Aceptar"
+                                        showCancelButton: true,
+                                        confirmButtonColor: "#3085d6",
+                                        cancelButtonColor: "#d33",
+                                        confirmButtonText: "Aceptar",
+                                        cancelButtonText: "Visualizar boleta"
                                     }).then((result) => {
                                         if (result.isConfirmed) {
                                             window.location.href = "http://localhost/ProyectoDSW/controllers/client/controlPago.php";
+                                        }else if (result.dismiss === Swal.DismissReason.cancel)
+                                        {
+                                            //---------------------------------------------------------
+                                            window.open("http://localhost/ProyectoDSW/controllers/client/controlBoleta.php", '_blank');
+                                            Swal.fire({
+                                                title: "Boleta Abierta",
+                                                text: "Se abrió su boleta en otra pestaña.",
+                                                icon: "info",
+                                                confirmButtonText: "Aceptar",
+                                                }).then((result) => {
+                                                    if (result.isConfirmed) {
+                                                        window.location.href = "http://localhost/ProyectoDSW/controllers/client/controlPago.php";
+                                                    } 
+                                                });              
                                         }
                                     });
                                 },
