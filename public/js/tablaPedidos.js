@@ -35,19 +35,26 @@ $(document).ready(function(){
                 // Parsea la respuesta JSON del servidor para obtener los detalles del pedido
                 var detalle=JSON.parse(response);
 
-                // Construye el contenido HTML para mostrar los detalles del pedido
-                var htmlContent = '<ul>';
-                detalle.forEach(function (detalleItem) {
-                    htmlContent += '<li>Nombre: ' + detalleItem.nombre + '</li>';
-                    // Puedes agregar más detalles según tus necesidades
-                });
-                htmlContent += '</ul>';
+                // Construye el contenido HTML para mostrar los detalles del pedido en una tabla
+                var htmlContent = '<table class="table">';
+                htmlContent += '<thead><tr><th>Nombre</th><th>Cantidad</th></tr></thead><tbody>';
 
-                // Muestra los detalles del pedido en la ventana emergente de Swal
+                detalle.forEach(function (detalleItem) {
+                    htmlContent += '<tr>';
+                    htmlContent += '<td>' + detalleItem.nombre + '</td>';
+                    htmlContent += '<td>' + detalleItem.cantidad + '</td>';
+                    // Puedes agregar más detalles según tus necesidades
+                    htmlContent += '</tr>';
+                });
+
+                htmlContent += '</tbody></table>';
+
+                // Muestra los detalles del pedido en la ventana emergente de Swal con una tabla
                 Swal.fire({
                     title: 'Detalles del Pedido',
                     html: htmlContent,
-                    icon: 'info'
+                    icon: 'info',
+                    width: '60%' // Ajusta el ancho según sea necesario
                 });
             }
         });
@@ -55,7 +62,7 @@ $(document).ready(function(){
 
     // Cargar la tabla al cargar la página
     cargarTabla();
-    // Actualizar la tabla cada 8 segundos
-    setInterval(cargarTabla, 8000);
+    // Actualizar la tabla cada 5 segundos
+    setInterval(cargarTabla, 5000);
 
 });

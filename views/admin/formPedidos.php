@@ -17,7 +17,7 @@ $menuAdmin->mostrarBarraLateral();
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="http://localhost/ProyectoDSW/public/css/pedidosAdmin.css">
+    <!--<link rel="stylesheet" href="http://localhost/ProyectoDSW/public/css/pedidosAdmin.css">-->
     <link rel="stylesheet" href="http://localhost/ProyectoDSW/public/css/productos.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -29,9 +29,10 @@ $menuAdmin->mostrarBarraLateral();
             <img src="/ProyectoDSW/public/img/system/hamburguesaProductos.png" alt="Hamburguesa" class="hamburguesa-img">
             <h1>BIENVENIDO A GESTIONAR PEDIDOS</h1>
         </div>
-        <div id="tabla_datos" class="contenedorPedidosAdmin">
+        <div id="tabla_datos" class="table">
 
         </div>
     </div>
 </body>
 </html>
+<!--class="contenedorPedidosAdmin"-->

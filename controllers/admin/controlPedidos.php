@@ -18,18 +18,32 @@ class ControlPedidos{
                         <th>Nombre</th>
                         <th>Apellido</th>
                         <th>Dirección</th>
+                        <th>Monto</th>
                         <th>Hora</th>
                         <th>Estado</th>
-                        <th>Acciones</th>
+                        <th colspan="2">Acciones</th>
                     </tr>';
 
         foreach ($pedidos as $pedido):
+            switch($pedido['estado']){
+                case 0:
+                    $estado='Pendiente';
+                    break;
+                case 1:
+                    $estado='En camino';
+                    break;
+                default:
+                    $estado='Entregado';
+                    break;
+            }
+
             $tabla_html .=  '<tr>
                                 <td>' . $pedido['nombre'] . '</td>
                                 <td>' . $pedido['apellido'] . '</td>
                                 <td>' . $pedido['direccion'] . '</td>
+                                <td>$.' . $pedido['monto'] . '</td>
                                 <td>' .  date("H:i", strtotime($pedido['fecha'])) . '</td>
-                                <td>' . $pedido['estado'] . '</td>
+                                <td>' . $estado . '</td>
                                 <td><button id="'.$pedido['idPedido'].'" onclick="siguienteEstado(this.id)">Siguiente</button></td>
                                 <td><button id="'.$pedido['idPedido'].'" onclick="detallePedido(this.id)">Detalles</button></td>
                             </tr>';

@@ -60,7 +60,7 @@
             $conexion = new ConnectionBD();
             $con = $conexion->connect();
             try{
-                $query= "SELECT p.idPedido,u.nombre, u.apellido, p.direccion, b.fecha, p.estado
+                $query= "SELECT p.idPedido,u.nombre, u.apellido, p.direccion, b.monto, b.fecha, p.estado
                 FROM pedido p JOIN usuario u ON p.idUsuario = u.idUsuario
                 JOIN boleta b ON p.idPedido = b.idPedido";
                 //WHERE DATE(b.fecha) = CURDATE()
@@ -82,7 +82,7 @@
             $con = $conexion->connect();
 
             try{
-                $query= "SELECT dp.idPlato, pl.nombre FROM detallepedido dp
+                $query= "SELECT dp.idPlato, pl.nombre, dp.cantidad FROM detallepedido dp
                 JOIN plato pl ON dp.idPlato = pl.idPlato
                 WHERE dp.idPedido = ?";
                 $stmt = mysqli_prepare($con, $query);
