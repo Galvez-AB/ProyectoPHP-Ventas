@@ -1,0 +1,103 @@
+.contenedorTitulo {
+    position: absolute;
+    top: 7vh;
+    left: 268px;
+    padding: 15px;
+}
+
+.header {
+    display: flex;
+    align-items: center
+}
+
+.contenedorTitulo img {
+    width: 80px;
+    height: 80px;
+}
+.contenedorTitulo h1 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    padding: 15px;
+    color: #f4ac44;
+    font-family: "Copperplate", "Copperplate Gothic Light";
+    font-weight: bold;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+.contenedorPedidos  table {
+    width: 100%; 
+    border-collapse: collapse; 
+    margin-top: 20px;
+    font-family: Arial, sans-serif; 
+}
+.contenedorPedidos td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    background-color: white;
+}
+.contenedorPedidos th {
+    padding: 15px;
+    background-color: #f4ac44;
+    color: white;
+}
+
+tr:hover td {
+    background-color: #f7f1e2;
+}
+
+.contenedorPedidos button {
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.siguiente {
+    background-color: #3498db;
+}
+.detalle {
+    background-color: #5cb85c;
+}
+.siguiente:hover {
+    background-color: #1f4f7a;
+}
+.detalle:hover {
+    background-color: #4e995e;
+}
+
+.enCamino {
+    color: #ffa500;
+    font-style: italic;
+}
+.pendiente {
+    color: #ff0000;
+    font-style: italic;
+}
+.entregado {
+    color: #08b708;
+    font-style: italic;
+}
+
+.contenedorDetalle {
+    width: 100%; 
+    font-family: Arial, sans-serif;
+}
+.contenedorDetalle table{
+    border-collapse: collapse; 
+    margin-top: 10px;
+}
+.contenedorDetalle td {
+    text-align: center;
+    border: 1px solid #ddd;
+    padding: 5px;
+    background-color: white;
+}
+.contenedorDetalle th {
+    text-align: center;
+    padding: 10px;
+    background-color: #f4ac44;
+    color: white;
+}

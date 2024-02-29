@@ -36,7 +36,7 @@ $(document).ready(function(){
                 var detalle=JSON.parse(response);
 
                 // Construye el contenido HTML para mostrar los detalles del pedido en una tabla
-                var htmlContent = '<table class="table">';
+                var htmlContent = '<table class="contenedorDetalle">';
                 htmlContent += '<thead><tr><th>Nombre</th><th>Cantidad</th></tr></thead><tbody>';
 
                 detalle.forEach(function (detalleItem) {
@@ -54,7 +54,7 @@ $(document).ready(function(){
                     title: 'Detalles del Pedido',
                     html: htmlContent,
                     icon: 'info',
-                    width: '60%' // Ajusta el ancho según sea necesario
+                    width: '35%' // Ajusta el ancho según sea necesario
                 });
             }
         });

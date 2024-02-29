@@ -11,6 +11,7 @@
     top: 0; 
     left: 278px; 
     border-radius: 8px;
+    z-index: 2;
   }
 
   header h1 {
