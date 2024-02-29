@@ -9,18 +9,45 @@ if (!isset($_SESSION['usuario'])) {
 }
 
 include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/views/admin/formMenuAdmin.php');
-$menuAdmin=new formMenuAdmin();
+$menuAdmin = new formMenuAdmin();
 
 $menuAdmin->mostrarCabecera();
 $menuAdmin->mostrarBarraLateral();
 ?>
 <head>
-    <!---------Ya tiene css------------>
     <link rel="stylesheet" href="http://localhost/ProyectoDSW/public/css/estadisticasAdmin.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#btnVentasTotales").click(function(){
+                $.get("/ProyectoDSW/controllers/admin/controlEstadisticas.php", { reporte: "ventas_totales" }, function(data){
+                    $("#reporteContainer").html(data);
+                });
+            });
+
+            $("#btnVentasPeriodo").click(function(){
+                $.get("/ProyectoDSW/controllers/admin/controlEstadisticas.php", { reporte: "ventas_por_periodo" }, function(data){
+                    $("#reporteContainer").html(data);
+                });
+            });
+        });
+    </script>
 </head>
 <body>
     <div class="contenedorEstadisticasAdmin">
-        <h1>Hola estas en Mostrar Estadisticas</h1>
-        <p>Pagina web en desarrollo.........</p>
+        <h1>Reportes estadísticos</h1>
+        <div class="opciones">
+            <button id="btnVentasTotales">Generar Reporte de Ventas Totales</button>
+            <button id="btnVentasPeriodo">Generar Reporte de Ventas por Período</button>
+        </div>
+        <div id="reporteContainer"></div>
     </div>
-    </body>
+</body>
+
+
+
+
+
+
+
+
