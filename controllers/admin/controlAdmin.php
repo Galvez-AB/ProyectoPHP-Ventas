@@ -20,9 +20,10 @@
             $controlador->menuEstadisticasShow();
         }
         elseif (isset($_POST['btnPedidos'])){
-            include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/controllers/admin/controlPedidos.php');
+            header("Location: /ProyectoDSW/views/admin/formPedidos.php");
+            /*include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/controllers/admin/controlPedidos.php');
             $controlador = new ControlPedidos();
-            $controlador->menuPedidosShow();
+            $controlador->menuPedidosShow();*/
         } elseif (isset($_POST['btnAyuda'])){
             header("Location: /ProyectoDSW/views/admin/formAyudaAdmin.php");
             exit();
