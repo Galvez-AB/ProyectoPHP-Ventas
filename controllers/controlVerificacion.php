@@ -29,8 +29,19 @@ class ControlVerificacion{
                 $usuario=$this->eUsuario->obtenerUsuario($txtCorreo);
                 session_unset();
                 $_SESSION['usuario']=$usuario;
-                header("Location: /ProyectoDSW/views/admin/formInicioAdmin.php");
-                exit();
+                
+                include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/views/client/formPanelCliente.php');
+                include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/models/Eplatos.php');
+                $modeloPlatos = new Eplatos();
+                $platos = $modeloPlatos->obtenerPlatosActivos(); 
+                $formInicio=new formPanelCliente();
+                //-------------------------------------------------
+                $_SESSION['nombreUsuario'] = $usuario['nombre'];
+                $_SESSION['ID'] = $usuario['idUsuario']; 
+
+                $formInicio->formPanelCabecera($_SESSION['nombreUsuario']);
+                //-------------------------------------------------
+                $formInicio->formPanelMenu($platos);
             } else{
                 $this->mensaje->formMensajeLoginError('CODIGO NO VALIDO','El codigo ingresado no coincide');
                 //mensaje el codigo es incorrecto
