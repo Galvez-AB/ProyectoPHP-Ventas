@@ -1,5 +1,5 @@
 <?php
-session_start(); 
+//session_start(); 
 class formPagos{
 
     public function formPagoPayPal($totalGeneral){
