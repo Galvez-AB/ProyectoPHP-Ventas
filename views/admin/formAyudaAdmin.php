@@ -24,7 +24,7 @@ $menuAdmin->mostrarBarraLateral();
             <p>Correo: burgerfisi@gmail.com</p>
             <p>Pagina Web: www.burgerfisi.com</p>
             <p>Teléfono(1): 910 486 639</p>
-            <p>Teléfono(2): 123 456 789</p>
+            <p>Teléfono(2): 915 252 294</p>
         </div>
         
         <div class="preguntasFrecuentes">
