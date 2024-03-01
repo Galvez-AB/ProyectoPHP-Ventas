@@ -40,6 +40,7 @@
         }
 
         public function agregarBoleta($idPedido, $serie, $monto) {
+            date_default_timezone_set('America/Lima');
             $conexion = new ConnectionBD();
             $con = $conexion->connect(); 
             try {
@@ -63,7 +64,7 @@
                 $query= "SELECT p.idPedido,u.nombre, u.apellido, p.direccion, b.monto, b.fecha, p.estado
                 FROM pedido p JOIN usuario u ON p.idUsuario = u.idUsuario
                 JOIN boleta b ON p.idPedido = b.idPedido";
-                //WHERE DATE(b.fecha) = CURDATE()
+                //WHERE DATE(b.fecha) = CURDATE()";
                 $result = mysqli_query($con, $query);
                 $pedidos=array();
                 while ($row = mysqli_fetch_assoc($result)) {
@@ -132,6 +133,68 @@
                 }
             } catch (Exception $e) {
                 throw $e;
+            } finally {
+                $conexion->disconnect();
+            }
+        }
+        //-------------------------------------------------------------------------------
+        public function obtenerBoleta($pedidoId) {
+            $conexion = new ConnectionBD();
+            $con = $conexion->connect();
+            try {
+                $query = "SELECT * FROM boleta WHERE idPedido = ?";
+                $stmt = mysqli_prepare($con, $query);
+                mysqli_stmt_bind_param($stmt, "i", $pedidoId);
+                mysqli_stmt_execute($stmt);
+                $resultado = mysqli_stmt_get_result($stmt);
+                $datosBoleta = $resultado->fetch_assoc();
+                return $datosBoleta;
+            } catch (Exception $e) {
+                echo "Error al obtener datos de la boleta: " . $e->getMessage();
+                exit;
+            } finally {
+                $conexion->disconnect();
+            }
+        }
+        public function obtenerPedido($pedidoId) {
+            $conexion = new ConnectionBD();
+            $con = $conexion->connect();
+            try {
+                $query = "SELECT * FROM pedido WHERE idPedido = ?";
+                $stmt = mysqli_prepare($con, $query);
+                mysqli_stmt_bind_param($stmt, "i", $pedidoId);
+                mysqli_stmt_execute($stmt);
+                $resultado = mysqli_stmt_get_result($stmt);
+                $datosPedido = $resultado->fetch_assoc();
+                return $datosPedido;
+            } catch (Exception $e) {
+                echo "Error al obtener datos del pedido: " . $e->getMessage();
+                exit;
+            } finally {
+                $conexion->disconnect();
+            }
+        }
+        public function obtenerDetallesPedidos($pedidoId) {
+            $conexion = new ConnectionBD();
+            $con = $conexion->connect();
+            try {
+                $query = "SELECT dp.idPedido, dp.idPlato, dp.cantidad, p.nombre, p.precio 
+                          FROM detallepedido dp
+                          JOIN plato p ON dp.idPlato = p.idPlato
+                          WHERE dp.idPedido = ?";
+                $stmt = mysqli_prepare($con, $query);
+                mysqli_stmt_bind_param($stmt, "i", $pedidoId);
+                mysqli_stmt_execute($stmt);
+                $resultado = mysqli_stmt_get_result($stmt);
+                                $detallesPedido = [];
+                while ($fila = $resultado->fetch_assoc()) {
+                    $detallesPedido[] = $fila;
+                }
+                
+                return $detallesPedido;
+            } catch (Exception $e) {
+                echo "Error al obtener los detalles del pedido: " . $e->getMessage();
+                exit;
             } finally {
                 $conexion->disconnect();
             }
