@@ -114,6 +114,7 @@ body{
   
   .product-card {
     position: relative;
+    justify-content: space-between;
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -161,6 +162,7 @@ body{
     border-radius: 3px;
     position: relative; 
     bottom: 2px;
-    left: 25%;
+    left: 17%;
     margin-top: 15px;
+    width: 70%;
 }
