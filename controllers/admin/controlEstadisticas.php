@@ -37,7 +37,7 @@ class ControlEstadisticas {
     
         // Verificar si se obtuvieron resultados
         if (mysqli_num_rows($result) > 0) {
-            echo "<h2>Reporte de Ventas Totales</h2>";
+            echo "<h2 class='reporte-totales'>Reporte de Ventas Totales</h2>"; // Agregamos la clase CSS aquí
             echo "<table>";
             echo "<tr><th>Fecha</th><th>Código de Producto</th><th>Nombre de Producto</th><th>Cantidad</th><th>Monto</th></tr>";
             // Mostrar los resultados
@@ -53,7 +53,7 @@ class ControlEstadisticas {
     }
     
     
-
+    
     public function generarReporteVentasPorPeriodo(){
         $conn = $this->conexion->connect();
     
@@ -68,7 +68,7 @@ class ControlEstadisticas {
     
         // Verificar si se obtuvieron resultados
         if (mysqli_num_rows($result) > 0) {
-            echo "<h2>Reporte de Ventas por Período</h2>";
+            echo "<h2 class='reporte-periodo'>Reporte de Ventas por Período</h2>"; // Agregamos la clase CSS aquí
             echo "<table>";
             echo "<tr><th>Período</th><th>Cantidad</th><th>Monto Total</th></tr>";
             // Mostrar los resultados
@@ -82,6 +82,7 @@ class ControlEstadisticas {
     
         mysqli_close($conn);
     }
+    
     
 }
 

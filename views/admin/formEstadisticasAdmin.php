@@ -35,7 +35,10 @@ $menuAdmin->mostrarBarraLateral();
 </head>
 <body>
     <div class="contenedorEstadisticasAdmin">
-        <h1>Reportes estadísticos</h1>
+        <div class="header">
+            <img src="/ProyectoDSW/public/img/system/hamburguesaProductos.png" alt="Hamburguesa" class="hamburguesa-img">
+            <h1>BIENVENIDO A MOSTRAR ESTADÍSTICAS</h1>
+        </div>
         <div class="opciones">
             <button id="btnVentasTotales">Generar Reporte de Ventas Totales</button>
             <button id="btnVentasPeriodo">Generar Reporte de Ventas por Período</button>
@@ -43,11 +46,4 @@ $menuAdmin->mostrarBarraLateral();
         <div id="reporteContainer"></div>
     </div>
 </body>
-
-
-
-
-
-
-
 

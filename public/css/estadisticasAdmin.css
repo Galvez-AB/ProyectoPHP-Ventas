@@ -4,4 +4,86 @@
     left: 268px;
     padding: 15px;
 }
-/*------------El resto de codigo debajo de aqui-------------*/
+
+.header {
+    display: flex;
+    align-items: center;
+}
+
+.header img {
+    width: 80px;
+    height: 80px;
+}
+
+.header h1 {
+    font-size: 18px;
+    font-weight: bold;
+    color: orange;
+    font-family: "Copperplate", "Copperplate Gothic Light";
+    font-weight: bold;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+    margin-left: 15px; /* Ajusta según sea necesario */
+}
+
+.opciones {
+    margin-top: 20px; /* Ajusta según sea necesario */
+}
+
+.opciones button {
+    margin-right: 10px; /* Ajusta según sea necesario */
+}
+
+/* Estilos para las tablas generadas dinámicamente */
+#reporteContainer table {
+    margin-top: 20px; /* Ajusta según sea necesario */
+    background-color: #fffcbc; /* Color de fondo de la tabla */
+    width: 150%;
+    border-collapse: collapse;
+    overflow-y: auto;
+    max-height: 600px; /* Ajusta según sea necesario */
+    border-radius: 6px;
+    text-align: center; /* Centra el contenido de las celdas */
+}
+
+#reporteContainer table th,
+#reporteContainer table td {
+    padding: 12px; /* Ajusta según sea necesario */
+    text-align: center; /* Centra el contenido de las celdas */
+    border-bottom: 1px solid #ddd;
+    font-family: Georgia, Times, 'Times New Roman', serif;
+}
+
+#reporteContainer table th {
+    background-color: #364552; /* Color de fondo de los encabezados */
+    color: white;
+}
+
+#reporteContainer table td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+}
+
+.reporte-totales,
+.reporte-periodo {
+    color: #364552; /* Cambia el color del texto a azul */
+}
+
+.contenedorEstadisticasAdmin .opciones button {
+    color: #364552; /* Cambia el color del texto a azul */
+    background-color: #fff; /* Color de fondo de los botones */
+    border: 2px solid #364552; /* Borde sólido azul */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px 20px; /* Espaciado interno de los botones */
+    font-size: 14px; /* Tamaño del texto */
+    cursor: pointer; /* Cambia el cursor al pasar sobre los botones */
+    margin-right: 60px; /* Espacio entre botones */
+}
+
+.contenedorEstadisticasAdmin .opciones button:hover {
+    background-color: #364552; /* Cambia el color de fondo al pasar el mouse */
+    color: white; /* Cambia el color del texto al pasar el mouse */
+}
+
+
