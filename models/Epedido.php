@@ -63,8 +63,8 @@
             try{
                 $query= "SELECT p.idPedido,u.nombre, u.apellido, p.direccion, b.monto, b.fecha, p.estado
                 FROM pedido p JOIN usuario u ON p.idUsuario = u.idUsuario
-                JOIN boleta b ON p.idPedido = b.idPedido";
-                //WHERE DATE(b.fecha) = CURDATE()";
+                JOIN boleta b ON p.idPedido = b.idPedido
+                WHERE DATE(b.fecha) = CURDATE()";
                 $result = mysqli_query($con, $query);
                 $pedidos=array();
                 while ($row = mysqli_fetch_assoc($result)) {
