@@ -29,15 +29,9 @@ class formPagos{
         </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script>
-
-            // Desactivar el botón de PayPal inicialmente
             document.getElementById('paypal-button-container').style.pointerEvents = 'none';
-
-            // Escuchar el evento de cambio en el campo de dirección
             document.getElementById('direccion').addEventListener('input', function() {
-            var direccion = this.value.trim(); // Obtener el valor de la dirección
-
-            // Si la dirección está vacía, desactivar el botón de PayPal; de lo contrario, activarlo
+            var direccion = this.value.trim(); 
                 if (direccion === '') {
                 document.getElementById('paypal-button-container').style.pointerEvents = 'none';
                 } else {
@@ -97,7 +91,6 @@ class formPagos{
                                             window.location.href = "http://localhost/ProyectoDSW/controllers/client/controlPago.php";
                                         }else if (result.dismiss === Swal.DismissReason.cancel)
                                         {
-                                            //---------------------------------------------------------
                                             window.open("http://localhost/ProyectoDSW/controllers/client/controlBoleta.php", '_blank');
                                             Swal.fire({
                                                 title: "Boleta Abierta",

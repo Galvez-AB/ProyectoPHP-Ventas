@@ -63,10 +63,6 @@ class ControlProductos {
 
 }
 
-
-
-
-
 if (basename(__FILE__) === basename($_SERVER["SCRIPT_FILENAME"])){
     $controlador = new ControlProductos();
     $controlador->ejecutarPost();

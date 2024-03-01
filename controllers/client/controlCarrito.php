@@ -11,7 +11,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['agregarCarrito'])) {
   } else {
     $_SESSION['carrito'][$idProducto] += 1;
   }
-  //toy contando items--------------------------------------
   $totalProductos = array_sum($_SESSION['carrito']);
 
   echo json_encode(array(

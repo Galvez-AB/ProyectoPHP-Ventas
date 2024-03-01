@@ -56,7 +56,6 @@
             }
         }
 
-        //falta hacer que solo se muestren solo los que son del mismo dia
         public function obtenerPedidos() {
             $conexion = new ConnectionBD();
             $con = $conexion->connect();

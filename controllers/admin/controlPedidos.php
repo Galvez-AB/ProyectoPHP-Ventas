@@ -54,7 +54,6 @@ class ControlPedidos{
 
         $tabla_html .= '</table>';
 
-        // Devolver la tabla HTML
         echo $tabla_html;
     }
 

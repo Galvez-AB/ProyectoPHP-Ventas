@@ -21,8 +21,6 @@
             </body><?php
             $menuAdmin->mostrarBarraLateral();
         }
-
-//pruebaaaa
         public function formMensajeProcesoCompleto($mensaje){?>
             <head>
                 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -39,8 +37,6 @@
                 </script>
             </body><?php
         }    
-
-
         public function formMensajeProcesoCompletoAdvertencia($mensaje){?>
             <head>
                 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -57,8 +53,6 @@
                 </script>
             </body><?php
         }
-
-
         public function formMensajeLoginError($titulo, $texto) {
             ?>
             <head>

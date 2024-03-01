@@ -35,16 +35,14 @@ class ControlVerificacion{
                 $modeloPlatos = new Eplatos();
                 $platos = $modeloPlatos->obtenerPlatosActivos(); 
                 $formInicio=new formPanelCliente();
-                //-------------------------------------------------
+                
                 $_SESSION['nombreUsuario'] = $usuario['nombre'];
                 $_SESSION['ID'] = $usuario['idUsuario']; 
-
                 $formInicio->formPanelCabecera($_SESSION['nombreUsuario']);
-                //-------------------------------------------------
+                
                 $formInicio->formPanelMenu($platos);
             } else{
                 $this->mensaje->formMensajeLoginError('CODIGO NO VALIDO','El codigo ingresado no coincide');
-                //mensaje el codigo es incorrecto
             }
         } else{
             header("Location: http://localhost/ProyectoDSW/index.php");

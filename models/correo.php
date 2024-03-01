@@ -9,7 +9,7 @@ use PHPMailer\PHPMailer\Exception;
             require $_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/vendor/PHPMailer/Exception.php';
             require $_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/vendor/PHPMailer/PHPMailer.php';
             require $_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/vendor/PHPMailer/SMTP.php';
-            $this->mail = new PHPMailer(true);//Crea una instancia, al pasar 'true' se habilitan excepciones
+            $this->mail = new PHPMailer(true);
         }
         public function enviarCorreoVerificacion($txtNombre,$txtCorreo,$codigo){
             try{
@@ -30,7 +30,7 @@ use PHPMailer\PHPMailer\Exception;
 
 
                 //Content
-                $this->mail->isHTML(true);                                  //Set email format to HTML
+                $this->mail->isHTML(true);                                  
                 $this->mail->Subject = $codigo.' es tu codigo de verificacion';
                 $this->mail->Body    = '<style>
                                     p {

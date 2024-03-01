@@ -1,5 +1,4 @@
 <?php
-//session_start(); 
 class formPanelCliente{
     public function formPanelCabecera($nombreUsuario){
         $totalProductos = isset($_SESSION['carrito']) ? array_sum($_SESSION['carrito']) : 0;
@@ -178,11 +177,8 @@ class formPanelCliente{
             ?>
         </div>
         <div class="panelPedidosBoton">
- <!--++++++++++++++++++++++++++++++++++-->
             <?php if (isset($totalGeneral) && $totalGeneral != 0): ?>
                 <form method="POST" action="/ProyectoDSW/controllers/client/controlRealizarPedido.php">
-                    
-                    <!--envia el total-->
                     <input type="hidden" name="totalGeneral" value="<?php echo $totalGeneral; ?>">
 
                     <button class="botonRealizarPedido" type="submit" name="btnRealizarPedido">Realizar el pedido</button>

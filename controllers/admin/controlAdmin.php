@@ -21,9 +21,7 @@
         }
         elseif (isset($_POST['btnPedidos'])){
             header("Location: /ProyectoDSW/views/admin/formPedidos.php");
-            /*include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/controllers/admin/controlPedidos.php');
-            $controlador = new ControlPedidos();
-            $controlador->menuPedidosShow();*/
+        
         } elseif (isset($_POST['btnAyuda'])){
             header("Location: /ProyectoDSW/views/admin/formAyudaAdmin.php");
             exit();

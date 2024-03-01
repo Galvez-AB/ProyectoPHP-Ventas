@@ -8,16 +8,16 @@ session_start();
 if (isset($_SESSION['idPedido'])) {
     $pedidoId = $_SESSION['idPedido'];
 }
-//------------------------------------------------------------
+
 $modelo = new Epedido();
 $Boleta = $modelo->obtenerBoleta($pedidoId);
-//------------------------------------------------------------
+
 $Pedido = $modelo->obtenerPedido($pedidoId);
     $iduser = $Pedido['idUsuario'];
-//------------------------------------------------------------
+
 $modeloUser = new Eusuario();
 $Usuario = $modeloUser->obtenerUsuarioPorId($iduser);
-//------------------------------------------------------------
+
 $DetallePedido=$modelo->obtenerDetallesPedidos($pedidoId);
 $modeloPlato = new Eplatos();
 $Platos = [];
@@ -36,9 +36,7 @@ if (!empty($DetallePedido)) {
 } else {
     echo "No se encontraron detalles para el pedido.";
 }
-//------------------------------------------------------------
 $boleta = new boleta();
 $boleta->generarBoleta($Boleta,$Usuario,$Pedido,$Platos);
 
-//Trabajando en mejoras---------------------------------------
 ?>

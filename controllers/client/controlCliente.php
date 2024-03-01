@@ -39,10 +39,9 @@ include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/models/Eplatos.php');
             }
             $formInicio->formPanelPedido($detallesCarrito);   
         }
-        //---------------------------------------------------------- 
+         
         elseif (isset($_POST['btnSalir'])){
             $_SESSION = array();
-            //session_unset();
             session_destroy();
             include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/controllers/controlPanelUsuario.php');   
             $controlPanel = new ControlPanel();
