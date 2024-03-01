@@ -14,7 +14,6 @@ $platos=$_SESSION['platos'];
 include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/views/admin/formMenuAdmin.php');
 $menuAdmin=new formMenuAdmin();
 
-$menuAdmin->mostrarCabecera();
 $menuAdmin->mostrarBarraLateral();
 ?>
 <head>
@@ -86,3 +85,6 @@ $menuAdmin->mostrarBarraLateral();
     </div>
 </body>
 </html>
+<?php
+$menuAdmin->mostrarCabecera();
+?>

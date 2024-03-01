@@ -11,7 +11,6 @@ if (!isset($_SESSION['usuario'])) {
 include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/views/admin/formMenuAdmin.php');
 $menuAdmin=new formMenuAdmin();
 
-$menuAdmin->mostrarCabecera();
 $menuAdmin->mostrarBarraLateral();
 ?>
 <!DOCTYPE html>
@@ -34,3 +33,6 @@ $menuAdmin->mostrarBarraLateral();
     </div>
 </body>
 </html>
+<?php
+$menuAdmin->mostrarCabecera();
+?>

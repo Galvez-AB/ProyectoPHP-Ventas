@@ -11,7 +11,6 @@ if (!isset($_SESSION['usuario'])) {
 include_once($_SERVER['DOCUMENT_ROOT'] . '/ProyectoDSW/views/admin/formMenuAdmin.php');
 $menuAdmin=new formMenuAdmin();
 
-$menuAdmin->mostrarCabecera();
 $menuAdmin->mostrarBarraLateral();
 ?>
 <head>
@@ -24,7 +23,7 @@ $menuAdmin->mostrarBarraLateral();
             <p>Nombre: BurgerFisi</p>
             <p>Correo: burgerfisi@gmail.com</p>
             <p>Pagina Web: www.burgerfisi.com</p>
-            <p>Teléfono(1): 123 456 789</p>
+            <p>Teléfono(1): 910 486 639</p>
             <p>Teléfono(2): 123 456 789</p>
         </div>
         
@@ -33,7 +32,7 @@ $menuAdmin->mostrarBarraLateral();
             <p><b>¿Como puedo controlar lo que se muestra en mi menu de ventas?</b></p>
             <p>Se debe ingresar al apartado de gestionar productos y cambiar el estado a no disponible </p>
             <p><b>¿Puedo recuperar un producto eliminado?</b></p>
-            <p>No, una vez eliminado el producto se borra de la base de datos</p>
+            <p>No, una vez eliminado el producto ya no se puede acceder a este, tienes que comunicarte con el administrador de la base de datos para recuperarlo</p>
         </div>
         
         <div class="tutorial">
@@ -47,3 +46,6 @@ $menuAdmin->mostrarBarraLateral();
         </div>
     </div>
 </body>
+<?php
+$menuAdmin->mostrarCabecera();
+?>
