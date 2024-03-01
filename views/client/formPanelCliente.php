@@ -56,13 +56,13 @@ class formPanelCliente{
                     <source src="http://localhost/ProyectoDSW/public/videos/banerVideo.mp4" type="video/mp4">
                 </video>
                 <h1>Burger Fisi</h1>
-                <h2>!! B I E N V E N I D O !!</h2>
+                <h2>¡ B I E N V E N I D O !</h2>
                 <h3>La hamburguesa para el cuerpo no es suficiente, <br>
                     debe haber una hamburguesa para el alma.</h3>
             </div>
             <div class="informacionExtra">
                 <div class="info1">
-                    <h1>!! HOLA !!</h1>
+                    <h1>¡ HOLA !</h1>
                     <p> Nos esforzamos por ofrecer<br>
                         experiencias culinarias <br>
                         excepcionales que deleiten <br>
@@ -70,7 +70,7 @@ class formPanelCliente{
                         espíritu.</p>
                     </div>
                 <div class="info2">
-                    <h1>!! CONOCENOS !!</h1>
+                    <h1>¡ CONOCENOS !</h1>
                     <p> En nuestra empresa nos <br>
                         dedicamos a servir <br>
                         hamburguesas deliciosas <br>
@@ -80,7 +80,7 @@ class formPanelCliente{
             </div>
 
             <div class="tituloVentas">
-                <h1>Conoce a nuestos productos !!</h1>
+                <h1>Conoce a nuestos productos</h1>
             </div>
 
             <div class="VentaProductos">
