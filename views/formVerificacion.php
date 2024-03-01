@@ -10,7 +10,7 @@ if (!isset($_SESSION['candidato'])) {
 
 ?>
 <head>
-    <link rel="stylesheet" href="http://localhost/ProyectoDSW/public/css/autenticarUsuario.css">
+    <link rel="stylesheet" href="/ProyectoDSW/public/css/autenticarCrearUsuario.css">
     <script>
         function validarFormulario() {
             var numero = document.getElementById('numero').value;

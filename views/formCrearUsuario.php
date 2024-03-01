@@ -1,5 +1,5 @@
 <head>
-    <link rel="stylesheet" href="http://localhost/ProyectoDSW/public/css/autenticarUsuario.css">
+    <link rel="stylesheet" href="/ProyectoDSW/public/css/autenticarCrearUsuario.css">
 </head>
 <body>
     <div class="formulario">

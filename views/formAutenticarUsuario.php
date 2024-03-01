@@ -1,5 +1,5 @@
 <head>
-    <link rel="stylesheet" href="http://localhost/ProyectoDSW/public/css/autenticarUsuario.css">
+    <link rel="stylesheet" href="/ProyectoDSW/public/css/autenticarCrearUsuario.css">
 </head>
 <body>
     <div class="formulario">
@@ -13,10 +13,10 @@
                 <input type="password" name="txtPassword" required>
                 <label>Contraseña</label>
             </div>
-            <button type="submit" name="btnIniciar">Iniciar</button>
+            <button class="boton" type="submit" name="btnIniciar">Iniciar</button>
         </form>
         <form method="post" action="/ProyectoDSW/controllers/controlAutenticarUsuario.php">
-            <button type="submit" name="btnRegistrar">Registrate</button>
+            <button class="boton" type="submit" name="btnRegistrar">Registrate</button>
         </form>
     </div>
 </body>
