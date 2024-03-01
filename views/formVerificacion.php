@@ -16,7 +16,7 @@ if (!isset($_SESSION['candidato'])) {
             var numero = document.getElementById('numero').value;
             if (isNaN(numero) || numero.length !== 5) {
                 alert('El código debe tener 5 dígitos.');
-                return false; // Evitar que se envíe el formulario
+                return false; 
             }
             return true;
         }
